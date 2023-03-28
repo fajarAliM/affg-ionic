@@ -1,0 +1,20 @@
+<ion-header no-border color="backColor">
+  <ion-navbar >
+    <ion-title><img src="assets/imgs/foot.png" height="40px" alt=""></ion-title>
+    
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="backgroundColor">
+
+	
+	<div class="imgContainer noticia card">
+        <img src="{{ news?.extension_img }}" class="newsImg" alt="Snow" style="width:100%;">
+        <div class="card-header">
+            <div class="card-title" text-wrap>{{ news?.titulo }}</div>
+		    <div class="card-subtitle">{{ news?.fecha }}</div>
+        </div>
+    </div>
+	
+  <div [innerHTML]="news?.texto"></div>
+</ion-content>

@@ -1,0 +1,174 @@
+<ion-header no-border color="backColor">
+  <ion-navbar hideBackButton>
+    <ion-title><img src="assets/imgs/logo_affg.png" height="35px" class="logo" alt=""></ion-title>
+    <ion-buttons left>
+        <button ion-button icon-only (click)="viewCtrl.dismiss()">
+            <ion-icon name="arrow-back"></ion-icon>
+        </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="backgroundColor">
+
+<div >
+  <ion-segment [(ngModel)]="clubSwitch">
+    <ion-segment-button value="clubs">
+      {{ 'CLUBS' | translate }}
+    </ion-segment-button>
+    <ion-segment-button value="players">
+      {{ 'PLAYERS' | translate }}
+    </ion-segment-button>
+    <ion-segment-button value="board">
+      {{ 'BOARD' | translate }}
+    </ion-segment-button>
+  </ion-segment>
+</div>
+	
+	
+	<div  [ngSwitch]="clubSwitch">
+  <div class="teamCard" padding *ngSwitchCase="'clubs'" text-center>
+    
+    <ion-thumbnail>
+        <img src="https://www.footgolf-france.fr/media/cache/club_big/{{teamInfo.Id}}_{{global.anyo}}">
+        
+      </ion-thumbnail>
+    <h1>{{teamInfo.Name}}</h1>
+    
+    <div class="field">
+	    <label>{{ 'MAINOFFICE' | translate }}</label>
+	    <p>{{teamInfo.Places.HeadOffice.Street}}</p>
+	    <p>{{teamInfo.Places.HeadOffice.PostalCode}}, {{this.teamInfo.Places.HeadOffice.Locality}}</p>
+	    <p><ion-icon name="call"></ion-icon> {{teamInfo.Places.HeadOffice.OfficePhone}}</p>
+	    <p><ion-icon name="mail"></ion-icon> {{teamInfo.Places.HeadOffice.Mail}}</p>
+    </div>
+    
+    <div class="field">
+	    <label>{{ 'CORROFFICE' | translate }}</label>
+	    <p>{{teamInfo.Places.Correspondance.Street}}</p>
+	    <p>{{teamInfo.Places.Correspondance.PostalCode}}, {{this.teamInfo.Places.Correspondance.Locality}}</p>
+	    <p><ion-icon name="call"></ion-icon> {{teamInfo.Places.Correspondance.OfficePhone}}</p>
+	    <p><ion-icon name="mail"></ion-icon> {{teamInfo.Places.Correspondance.Mail}}</p>
+    </div>
+    
+  </div>
+
+  <ion-list padding *ngSwitchCase="'players'">
+    
+    <ion-item *ngFor="let p of players" >
+      <ion-thumbnail item-start>
+        <img *ngIf="p.Photo" src="data:image/png;base64,{{p.Photo}}">
+        <ion-icon *ngIf="!p.Photo" name="contact"></ion-icon>
+        
+      </ion-thumbnail>
+      <h2><img src="assets/imgs/flags/{{p.Country | uppercase}}.svg" width="16px"> {{p.LastName}}, {{p.FirstName}}</h2>
+      <p class="note">{{p.Country}}</p>
+    </ion-item>
+    
+  </ion-list>
+  
+  <ion-list padding *ngSwitchCase="'board'">
+    
+    <ion-item>
+      <ion-thumbnail item-start>
+        <img *ngIf="director_p" src="data:image/png;base64,{{director_p}}">
+        <ion-icon *ngIf="!director_p" name="contact"></ion-icon>
+        
+      </ion-thumbnail>
+      <h2>{{director}}</h2>
+      <p class="note">{{ 'DIRECTOR' | translate }}</p>
+    </ion-item>
+    
+    <ion-item>
+      <ion-thumbnail item-start>
+        <img *ngIf="secretario_p" src="data:image/png;base64,{{secretario_p}}">
+        <ion-icon *ngIf="!secretario_p" name="contact"></ion-icon>
+        
+      </ion-thumbnail>
+      <h2>{{secretario}}</h2>
+      <p class="note">{{ 'SECRETARIO' | translate }}</p>
+    </ion-item>
+    
+    <ion-item>
+      <ion-thumbnail item-start>
+        <img *ngIf="tesorero_p" src="data:image/png;base64,{{tesorero_p}}">
+        <ion-icon *ngIf="!tesorero_p" name="contact"></ion-icon>
+        
+      </ion-thumbnail>
+      <h2>{{tesorero}}</h2>
+      <p class="note">{{ 'TESORERO' | translate }}</p>
+    </ion-item>
+    
+  </ion-list>
+  
+	</div>
+
+</ion-content>
+
+
+<!--<ion-content padding class="backgroundColor">
+	
+	<h1>{{ teamInfo?.nombre }}</h1> <img src="{{ teamInfo?.logo }}" height="60px;">
+	</div>
+
+	<div padding-top>
+		<ion-segment >
+		<ion-segment-button value="players">
+		      PLAYERS
+		    </ion-segment-button>
+		    <ion-segment-button value="info">
+		      INFO
+		    </ion-segment-button>
+		    
+		</ion-segment>
+
+		<div [ngSwitch]="team">
+		
+		<h2 *ngSwitchCase="'players'">Men</h2>
+		
+		<ion-list *ngSwitchCase="'players'">
+
+			<ion-item *ngFor="let p of menplayers" (click)="openPlayer(p)">
+		      <ion-avatar item-start>
+		        <img src="{{ p.foto }}">
+		      </ion-avatar>
+		      <h2>{{ p.nombre }} {{ p.apellidos }}</h2>
+		      <p>{{ p.categoria }} • {{ p.fecha_nacimiento }}</p>
+		    </ion-item>
+		
+		</ion-list>	
+			
+		<h2 *ngSwitchCase="'players'">Women</h2>
+			<ion-list *ngSwitchCase="'players'">
+			<ion-item *ngFor="let p of womenplayers" (click)="openPlayer(p)">
+		      <ion-avatar item-start>
+		        <img src="{{ p.foto }}">
+		      </ion-avatar>
+		      <h2>{{ p.nombre }} {{ p.apellidos }}</h2>
+		      <p>{{ p.categoria }} • {{ p.fecha_nacimiento }}</p>
+		    </ion-item>
+			</ion-list>
+		    
+		    
+		<h2 *ngSwitchCase="'players'">Senior</h2>
+			<ion-list *ngSwitchCase="'players'">
+			<ion-item *ngFor="let p of seniorplayers" (click)="openPlayer(p)">
+		      <ion-avatar item-start>
+		        <img src="{{ p.foto }}">
+		      </ion-avatar>
+		      <h2>{{ p.nombre }} {{ p.apellidos }}</h2>
+		      <p>{{ p.categoria }} • {{ p.fecha_nacimiento }}</p>
+		    </ion-item>
+			</ion-list>
+		    
+		
+		  <div *ngSwitchCase="'info'" padding-top>
+		  	<div [innerHTML]="teamInfo?.info"></div>
+		  </div>
+
+	    
+
+		</div>
+	</div>
+
+</ion-content>-->

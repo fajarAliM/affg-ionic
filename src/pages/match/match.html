@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Match</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+    
+    <score [fecha_programado]="p.fecha_programado" [campo]="p.nombre_campo" [equipos]="p.equipos" [jugando]="p.jugando" [hoyoactual]="p.hoyo_actual" [listadohoyos]="p.listado_victorias_hoyos"  [grupo]="p.grupo"  [partido_id]="p.partido_id" *ngFor="let p of partidos" ></score>
+
+        <ion-row>
+            <ion-col center text-center><button ion-button menuToggle>Hole By hole</button></ion-col>
+            <ion-col center text-center><button ion-button menuToggle>Line Ups</button></ion-col>
+            <ion-col center text-center><button ion-button menuToggle>Events</button></ion-col>
+            <ion-col center text-center><button ion-button menuToggle>News</button></ion-col>
+        </ion-row>
+    <ion-item *ngFor="let p of partidos">
+        <ion-row>
+        	<ion-col center text-center col-sm-4 col-md-4 col-lg-4 col-xl-4>
+        		<br /><br />Hole
+        	</ion-col>
+            
+
+            
+            
+        	<ion-col center text-center *ngFor="let e of p.equipos" col-sm-4 col-md-4 col-lg-4 col-xl-4>
+        		<img class="escudito" data-src="{{global.url_assets}}{{e.imagen_equipo}}" (click)='verScores(1);'><br />
+                <ion-icon name="baseball" [ngClass]="e.color" style="border-radius:20px;"></ion-icon>
+        		<p style="font-size:12px">{{e.nombre_equipo}}</p >
+        	</ion-col>
+                
+            
+                
+    	</ion-row>
+
+        <lineahoyo [num_hoyo]="h.num" [color]="h.ganador" [jugadores]="h.users" *ngFor="let h of p.hoyos"></lineahoyo>
+    </ion-item>
+
+
+    
+
+</ion-content>
+
+
+

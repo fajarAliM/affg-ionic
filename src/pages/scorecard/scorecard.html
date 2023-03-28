@@ -1,0 +1,247 @@
+<ion-header no-border color="backColor">
+    <ion-navbar hideBackButton>
+    <ion-title>Score Card</ion-title>
+      <ion-buttons left>
+          <button ion-button icon-only (click)="viewCtrl.dismiss()">
+              <ion-icon name="arrow-back"></ion-icon>
+          </button>
+      </ion-buttons>
+    </ion-navbar>
+  </ion-header>
+  
+  
+  <ion-content padding class="backgroundColor">
+    
+	  
+
+  <ion-list no-lines>
+	  <ion-item class="infoPlayer" no-lines>
+	    <ion-thumbnail item-start>
+	      
+		      	<img *ngIf="infoPlayer.Licence.Photo" src="data:image/png;base64,{{infoPlayer.Licence.Photo}}">
+		      	<ion-icon *ngIf="!infoPlayer.Licence.Photo" name="contact"></ion-icon>
+		      
+	    </ion-thumbnail>
+	    <h2>{{ infoPlayer.Licence.LastName }}, {{ infoPlayer.Licence.FirstName }}<span class="flag">
+		      	<img src="./assets/imgs/flags/{{ infoPlayer.Licence.Nationality }}.png" width="20px">
+		      </span></h2>
+	    <!--<p><span *ngFor="let sc of rank.results.Pars; index as i; first as isFirst"> <span *ngIf="!isFirst">•</span> {{ sc }} ({{rank.diferencia[i]}})  </span></p>-->
+	    <p>TOTAL <strong>{{ infoPlayer.TotalScore }}</strong></p>
+	  </ion-item>
+	</ion-list>
+		
+		
+		<ion-segment [(ngModel)]="resultSwitch">
+		    <ion-segment-button *ngFor="let ronda of infoPlayer.Pars; index as i;" value="ronda{{i}}">
+		      {{ 'RONDA' | translate }} {{i + 1}}
+		    </ion-segment-button>
+		    
+		  </ion-segment>
+		
+		  
+		  <div  [ngSwitch]="resultSwitch">
+			  <div *ngFor="let ronda of infoPlayer.Pars; index as k;">
+				  
+				  <div *ngIf="rondas_jugadas > k">
+				  
+					  <div class="scorecard"  *ngSwitchCase="'ronda' + k">
+					   		
+					   							   		
+					   		
+					   		<ion-list class="">
+					   			<ion-list-header>    
+							    <ion-grid>
+							    	<ion-row>
+									    <ion-col col-2 text-center>
+									      {{ 'HOYO' | translate }} 
+									        
+									    </ion-col>
+									    <ion-col col-5 text-center>
+									       {{ 'PAR' | translate }} 
+								    
+									    </ion-col>
+									    <ion-col col-5 text-center>
+									      {{ 'GOLPES' | translate }}
+									    </ion-col>
+									  </ion-row>
+							    </ion-grid>
+							  </ion-list-header>
+							  <ion-item *ngFor="let hoyo of ronda; index as z;">    
+							    <ion-grid>
+							    	<ion-row>
+									    <ion-col col-2 text-center>
+									      {{ z+1 }} 
+									        
+									    </ion-col>
+									    <ion-col col-5 text-center>
+									       {{ infoTorneo.Pars[k][z] }} 
+								    
+									    </ion-col>
+									    <ion-col col-5 text-center *ngIf="(hoyo-infoTorneo.Pars[k][z])==0" class="par">{{hoyo}}</ion-col>
+									    <ion-col col-5 text-center *ngIf="(hoyo-infoTorneo.Pars[k][z])==1" class="bogey">{{hoyo}}</ion-col>
+									    <ion-col col-5 text-center *ngIf="(hoyo-infoTorneo.Pars[k][z])==2" class="doblebogey">{{hoyo}}</ion-col>
+									    <ion-col col-5 text-center *ngIf="(hoyo-infoTorneo.Pars[k][z])>2" class="doblebogeyPlus">{{hoyo}}</ion-col>
+									    <ion-col col-5 text-center *ngIf="(hoyo-infoTorneo.Pars[k][z])==-1" class="birdie">{{hoyo}}</ion-col>
+									    <ion-col col-5 text-center *ngIf="(hoyo-infoTorneo.Pars[k][z])==-2" class="eagles">{{hoyo}}</ion-col>
+									    <ion-col col-5 text-center *ngIf="(hoyo-infoTorneo.Pars[k][z])<-2" class="eaglesPlus">{{hoyo}}</ion-col>
+									  </ion-row>
+							    </ion-grid>
+							  </ion-item>
+							  
+							  <ion-list-header>    
+							    <ion-grid>
+							    	<ion-row>
+									    <ion-col col-2 text-center>
+									      {{ 'TOTAL' | translate }} 
+									        
+									    </ion-col>
+									    <ion-col col-5 text-center>
+									       <h5>{{paresCampo[k]}}</h5>
+								    
+									    </ion-col>
+									    <ion-col col-5 text-center>
+									      <h4>{{totales[k]}}</h4>
+									    </ion-col>
+									  </ion-row>
+							    </ion-grid>
+							  </ion-list-header>
+							  
+							</ion-list>
+					   			   		
+					   		
+					   	
+					  </div>
+				  
+				  </div>
+				  
+				  <div *ngIf="rondas_jugadas >1">
+				  
+					  <div class="teamCard"  padding *ngSwitchCase="ronda1">
+					   		
+					   		
+					   		<p *ngFor="let hoyo of infoPlayer.Pars; index as j;">{{hoyo}} / {{ronda.golpes[j]}}</p>			   		
+					   		
+					   	
+					  </div>
+				  
+				  </div>
+				  
+				  <div *ngIf="rondas_jugadas >2">
+				  
+					  <div class="teamCard"  padding *ngSwitchCase="ronda2">
+					   		
+					   		
+					   		<p *ngFor="let hoyo of ronda.par; index as j;">{{hoyo}} / {{ronda.golpes[j]}}</p>			   		
+					   		
+					   	
+					  </div>
+				  
+				  </div>
+				  
+				  <div *ngIf="rondas_jugadas >3">
+				  
+					  <div class="teamCard"  padding *ngSwitchCase="ronda3">
+					   		
+					   		
+					   		<p *ngFor="let hoyo of ronda.par; index as j;">{{hoyo}} / {{ronda.golpes[j]}}</p>			   		
+					   		
+					   	
+					  </div>
+				  
+				  </div>
+				  
+				  <div *ngIf="rondas_jugadas >4">
+				  
+					  <div class="teamCard"  padding *ngSwitchCase="ronda4">
+					   		
+					   		
+					   		<p *ngFor="let hoyo of ronda.par; index as j;">{{hoyo}} / {{ronda.golpes[j]}}</p>			   		
+					   		
+					   	
+					  </div>
+				  
+				  </div>
+				  
+				  
+			  </div>
+		  </div>
+		  
+		  
+		  
+	<!--	  
+		  <div class="timeline">
+		    <ul>
+			    
+			      <li>
+		        <div class="bullet green"></div>
+		        <div class="time"></div>
+		        
+		        <div class="desc" *ngIf="rondas_jugadas > 0" text-center>
+		          <h4>R1</h4>
+		          <h3 >{{infoPlayer.Score1}}</h3>
+		          
+		        </div>
+		        
+		        <div class="desc" *ngIf="rondas_jugadas > 1" text-center >
+		          <h4>R2</h4>
+		          <h3>{{infoPlayer.Score2}}</h3>
+		        </div>
+		        
+		        <div class="desc" *ngIf="rondas_jugadas > 2" text-center >
+		          <h4>R3</h4>
+		          <h3>{{infoPlayer.Score3}}</h3>
+		        </div>
+		        
+		        <div class="desc" *ngIf="rondas_jugadas > 3" text-center >
+		          <h4>R4</h4>
+		          <h3>{{infoPlayer.Score4}}</h3>
+		        </div>
+		        
+		      </li>
+
+			    
+		      <li *ngFor="let hoyo of hoyos_fake; index as i; first as isFirstHoyo">
+		        <div class="bullet green"></div>
+		        <div class="time" text-center>HOLE {{i + 1}}</div>
+		        <div class="desc" text-center *ngFor="let rondas of infoPlayer.Pars; index as j;">
+		          
+		          <h3 >{{infoPlayer.Pars[j][i]}}</h3>
+		        </div>
+		        
+		      </li>
+		      
+		  		      
+		      <li>
+		        <div class="bullet pink"></div>
+		        <div class="time">T</div>
+		        
+		        <div class="desc" *ngIf="rondas_jugadas > 0" text-center>
+		          <h4>R1</h4>
+		          <h3 >{{infoPlayer.Score1}}</h3>
+		        </div>
+		        
+		        <div class="desc" *ngIf="rondas_jugadas > 1" text-center>
+		          <h4>R2</h4>
+		          <h3 >{{infoPlayer.Score2}}</h3>
+		        </div>
+		        
+		        <div class="desc" *ngIf="rondas_jugadas > 2" text-center>
+		          <h4>R3</h4>
+		          <h3 >{{infoPlayer.Score3}}</h3>
+		        </div>
+		        
+		        <div class="desc" *ngIf="rondas_jugadas > 3" text-center>
+		          <h4>R4</h4>
+		          <h3 >{{infoPlayer.Score4}}</h3>
+		        </div>
+		        
+		      </li>
+		      
+		    </ul>
+		  </div>
+-->
+	
+	
+  
+  </ion-content>
+  

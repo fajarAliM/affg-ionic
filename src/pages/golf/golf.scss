@@ -1,0 +1,146 @@
+page-golf {
+	ion-title {
+	  position: absolute;
+	  top: 0;
+	  left: 0;
+	  padding: 0 90px 1px;
+	  width: 100%;
+	  height: 100%;
+	  text-align: center;
+	}
+
+	.teamsTitle{
+		color: #0061cb;
+	}
+	
+	.scroll-content{
+		margin-bottom: 0px;
+	}
+	
+	.circle {
+        background-color:#fff;
+        border:3px solid #979797;    
+        height:70px;
+        border-radius:50%;
+        -moz-border-radius:50%;
+        -webkit-border-radius:50%;
+        width:70px;
+    }
+    .mCenter{
+        margin: 0 auto;
+    }
+    
+    ion-avatar img{
+	    border-radius: 50%;
+    overflow: hidden;
+    width: 60px;
+    height: 60px;
+    display: unset;
+    border: 2px solid #999;
+    }
+    
+    .avatarequipo img{ border: none; border-radius: 0;}
+    
+    ion-list{
+	    margin-top: 10px !important;
+	    -webkit-box-shadow: 0 4px 16px rgba(0,0,0,.12);
+		box-shadow: 0 4px 16px rgba(0,0,0,.12); 
+		border-radius: 8px;
+    }
+    
+    .item-block:first-child{ border-top: none !important; border-radius: 8px;}
+    .item-block:last-child, .item-wrapper:last-child .item-block{ border-bottom: none !important; border-radius: 8px;}
+    
+    
+    .teamCard{
+	    h1{ margin-bottom: 3rem;}
+	    label{ color: rgba(255,255,255,.5); }
+	    p{  }
+    }
+    
+    
+    ion-item, .item-ios{
+	
+	background-color: rgba(255,255,255,.03);
+	border: none !important;
+	border-radius: 6px;
+	padding: 0px;
+	margin-bottom: 8px;
+	
+	.item-inner{ border-bottom: none !important;}
+	
+	ion-label{     white-space: unset;
+		h2{ color: white; font-size: 1.6rem;}
+		p.note{ font-size: 1.2rem;     margin: 6px 0px 2px; color: rgba(255,255,255,.5) !important; }
+	}
+	
+	ion-thumbnail[item-start]{
+		margin: 0px;
+		margin-right: 8px;
+		margin-left: 8px;
+		
+		img{ min-height: 60px; min-width: 60px; border-radius: 50%; background-color: white;     padding: 2px;}
+		ion-icon{    font-size: 70px;
+    color: white;}
+	}
+	
+	
+}
+    
+    .backgroundColor{
+	    background-repeat: no-repeat;
+	    background-position: top;
+	    background-size: auto 214px;
+	   
+    }
+    
+    .titulo{
+	    min-height: 150px;
+	    height: 150px;
+    /* padding-top: 33px; */
+    position: sticky;
+    align-items: center;
+    margin-top: 64px;
+    z-index:10;
+    color: white;
+    
+    background: rgba(19,19,19,0);
+background: -moz-linear-gradient(top, rgba(19,19,19,0) 0%, rgba(57,55,63,1) 100%);
+background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(19,19,19,0)), color-stop(100%, rgba(57,55,63,1)));
+background: -webkit-linear-gradient(top, rgba(19,19,19,0) 0%, rgba(57,55,63,1) 100%);
+background: -o-linear-gradient(top, rgba(19,19,19,0) 0%, rgba(57,55,63,1) 100%);
+background: -ms-linear-gradient(top, rgba(19,19,19,0) 0%, rgba(57,55,63,1) 100%);
+background: linear-gradient(to bottom, rgba(19,19,19,0) 0%, rgba(57,55,63,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#131313', endColorstr='#39373f', GradientType=0 );
+    
+    h1{ padding-top: 20px;}
+	    
+    }
+    
+    .scroll-content{ margin-top: 214px !important; }
+    
+    
+    .webPage{
+		width: 100%;
+		border: none;
+		height: -webkit-fill-available;
+		    /*height: 400vh;*/
+		    background-color: color($colors, dark);
+		    
+		    html{ overflow-y: scroll !important;}
+		    body{ overflow-y: scroll !important;}
+		    
+		}
+    
+    .img_gallery{ margin-top: 15px;}
+    
+    
+    table.precios{
+	    border: 0px solid white;
+	    
+	    td{  border: 1px solid white;}
+	    
+    }
+    
+    
+}

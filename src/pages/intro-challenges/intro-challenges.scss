@@ -1,0 +1,55 @@
+// Styles for all of the user pages:
+// Login, Signup, Support
+
+page-intro-challenges{
+    
+	
+	background-color: color($colors, dark) !important;
+	background-image: url('../../assets/imgs/Bg3.jpg')!important;
+	    background-size: cover !important;
+    font-weight: 500;
+    background-position: center !important;
+	
+
+    
+    font-family: 'Roboto', sans-serif; 
+
+    .list {
+        margin-bottom: 0;
+    }
+    
+
+    .login-page .item-divider{ background-color: transparent;}
+    .login-page .item .ion-label-stacked, .login-page .item .text-input{ color: color($colors, dark);}
+	
+	ion-label[stacked], ion-label[floating]{ color: #d4d4d4;}
+	
+    .login-page .item{ background: transparent; color: white; padding-left: 0 !important;}
+    
+    .login-page .item-inner{}
+    
+
+    /*.login-page .button-default{ background-color: white; color: color($colors, primary);}*/
+    
+    page-login .login-page .item .ion-label-stacked, page-login .login-page .item .text-input{ color: color($colors, dark);}
+    
+
+    .login-page .list{ margin-top: 10%;}
+    
+    .logo{ margin-bottom: 20%;
+	    
+	    img{ width: 70%;}
+	    h4{ margin-top: 20%;}
+	    
+    }
+    
+    .texto-legal{ color: color($colors, light); line-height: 20px;}
+    
+   
+   .button-block{ min-height: 41px;}
+    
+
+    
+    
+    
+}

@@ -1,0 +1,78 @@
+page-scores {
+	.scroll-content{ margin-bottom: 0px;}
+    ion-title {
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: 0 90px 1px;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+    }
+
+
+	ion-note {
+    font-size: 12px;
+    align-self: flex-start;
+    margin-top: 14px;
+  }
+  
+  ion-list-header{ background-color: rgba(255,255,255,.03); color: white !important; border-radius: 6px 6px 0 0 !important; padding-left: 10px;
+	  
+  }
+  ion-list{-webkit-box-shadow: 0 4px 16px rgba(0,0,0,.12);
+		box-shadow: 0 4px 16px rgba(0,0,0,.12); border-radius: 6px;}
+	.list-md{ margin-top: 30px;}
+	.list-header-md{ border-top: none; border-bottom: 1px solid #dedede; margin-bottom: 0px; border-radius: 6px 6px 0 0 !important;  }
+	
+	
+	
+	ion-list .item-block:first-child, .item-block:last-child{ border-top:none !important; border-bottom: none !important;}
+    
+    
+    
+    ion-item, .item-ios, .item-md{
+	
+			background-color: rgba(255,255,255,.03);
+			border: none !important;
+			border-radius: 0px;
+			padding: 0px;
+			
+			.item-inner{ border-bottom: none !important;}
+			
+			ion-label{      margin-left: 10px;
+    margin-top: 0px;   white-space: unset; margin-bottom: 0px !important;
+				h2{ color: white; font-size: 1.6rem;}
+				p.note{ font-size: 1.2rem;     margin: 6px 0px 2px; color: rgba(255,255,255,.5) !important; 
+					
+					span.hoyo{ color: white; font-size: 1.6rem;}
+					
+				}
+			}
+		
+			
+			
+			
+			
+			ion-thumbnail[item-start]{
+		margin: 0px;
+		margin-right: 8px;
+		margin-left: 8px;
+		
+		img{ width: 40px; height: 40px; min-height: 30px; min-width: 30px; border-radius: 50%; background-color: white;     padding: 2px; margin-top: 9px;}
+		ion-icon{    font-size: 50px;
+    color: white; margin-top: 2px;}
+	}
+			
+			
+	
+		}
+    
+    ion-item:first-child{ }
+     ion-item:last-child{ border-radius:  0 0 6px 6px;}
+     
+     
+     .searchbar-ios{ margin-bottom: 5px; margin-top: 5px;}
+     
+    
+}

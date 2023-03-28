@@ -1,0 +1,196 @@
+page-dashboard {
+	ion-title {
+	  position: absolute;
+	  top: 0;
+	  left: 0;
+	  padding: 0 90px 1px;
+	  width: 100%;
+	  height: 100%;
+	  text-align: center;
+	}
+	
+	ion-item-divider{
+		height: 60px;
+	}
+	.newsImg{
+		border-radius: 25px;
+		-webkit-filter: brightness(80%); /* Safari 6.0 - 9.0 */
+    	filter: brightness(80%);
+	}
+	
+	ion-slides {
+	    display: block;
+	    width: 100%;
+	    height: 20%;
+	}
+	.resultBox{
+		display: block;
+	    width: 90%;
+	    height: 40%;
+	    margin: 16px auto;
+	    background-image: url('../../assets/imgs/scoreBack.jpg')!important;
+	    background-size: cover;
+	    background-position: center center;
+	    background-repeat: no-repeat;
+	    border-radius: 10px;
+	}
+	.circle {
+	    background-color:#fff;
+	    border:3px solid #777;    
+	    height:70px;
+	    border-radius:50%;
+	    -moz-border-radius:50%;
+	    -webkit-border-radius:50%;
+	    width:70px;
+	}
+	.fright{
+		float: right;
+	}
+	.fleft{
+		float: left;
+	}
+	.mCenter{
+		margin: 0 auto;
+	}
+	.container {
+	    position: relative;
+	    text-align: center;
+	    color: white;
+	}
+
+	/* Bottom left text */
+	.bottom-left {
+	    position: absolute;
+	    bottom: 30px;
+	    left: 36px;
+	    width: 80%;
+	}
+
+	/* Top left text */
+	.top-left {
+	    position: absolute;
+	    top: 8px;
+	    left: 16px;
+	}
+
+	/* Top right text */
+	.top-right {
+	    position: absolute;
+	    top: 8px;
+	    right: 16px;
+	}
+
+	/* Bottom right text */
+	.bottom-right {
+	    position: absolute;
+	    bottom: 8px;
+	    right: 16px;
+	}
+
+	/* Centered text */
+	.centered {
+	    position: absolute;
+	    top: 50%;
+	    left: 50%;
+	    transform: translate(-50%, -50%);
+	}
+	.trans{
+		background:rgba(0,0,0,0.0) !important;
+	}
+	.blackFilter{
+		background-color: rgba(0, 0, 0, 0.5);
+	    position: absolute;
+	    width: 100%;
+	    height: 100%;
+	    border-radius: 25px;
+	}
+	.imgContainer{
+		position: relative;
+	    text-align: center;
+	    color: white;
+	}
+	.item-md {
+	    background-color: none !important;
+	}
+	
+	/****** VICTOR *******/
+	
+.imgContainer.noticia.card.video{ padding: 15px; margin-bottom: 20px;}
+
+
+		
+		.card{ background-color: rgba(255,255,255,.03); border-radius: 6px; width: 100% !important; margin: 0 !important; margin-bottom: 20px !important;}
+     
+     .card-header{
+		text-align: left;
+				    padding: 15px 15px 16px;
+				        padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20px;
+    padding-bottom: 16px;
+
+		.card-subtitle{ font-size: 1.2rem;     margin: 6px 0px 2px; color: rgba(255,255,255,.5) !important;}
+		.card-title{ color: white; font-size: 1.6rem;
+   
+    text-overflow: ellipsis;}
+		
+	}
+
+		
+	
+	.resultBox{
+		-webkit-box-shadow: 0 4px 16px rgba(0,0,0,.12);
+     box-shadow: 0 4px 16px rgba(0,0,0,.12);
+     
+     .numero_ronda{ background-color: white; color: #333; padding: 3px; font-size: .8em;}
+     .estado{ text-transform: uppercase;}
+     
+     h4{ margin-top: 3px;}
+     .score{ background-color: #333; color: white; padding: 10px; font-size: 2.0em; border-radius: 50%; position: relative;
+    top: 10px;}
+    
+    .linearriba{ border-top: 1px solid #f4f4f4; margin-top: 15px; }
+    
+	}
+	
+.link_more{
+	    float: right;
+    font-size: 0.6em;
+    margin-top: 8px;
+    color: #4D8CF4;
+}	
+
+ion-note {
+    font-size: 12px;
+    align-self: flex-start;
+    margin-top: 14px;
+  }
+  
+
+ion-item, .item-ios{
+	
+	background-color: rgba(255,255,255,.03);
+	border: none !important;
+	border-radius: 6px;
+	padding: 0px;
+	margin-bottom: 8px;
+	
+	.item-inner{ border-bottom: none !important;}
+	
+	ion-label{     white-space: unset;
+		h2{ color: white; font-size: 1.6rem;}
+		p.note{ font-size: 1.2rem;     margin: 6px 0px 2px; color: rgba(255,255,255,.5) !important; }
+	}
+	
+	ion-thumbnail[item-start]{
+		margin: 0px;
+		margin-right: 8px;
+		img{ min-height: 75px; min-width: 75px;}
+	}
+	
+	
+}
+
+	
+
+}

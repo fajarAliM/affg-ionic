@@ -1,0 +1,95 @@
+page-player {
+	ion-title {
+	  position: absolute;
+	  top: 0;
+	  left: 0;
+	  padding: 0 90px 1px;
+	  width: 100%;
+	  height: 100%;
+	  text-align: center;
+	}
+
+	.circle2 {
+        background-color:#f8f8f8;
+        border:1px solid #777;    
+        height:70px;
+        border-radius:50%;
+        -moz-border-radius:50%;
+        -webkit-border-radius:50%;
+        width:70px;
+    }
+    ion-icon.algo{
+        display: inline-block;
+        font-size: 4em;
+    }
+    .mCenter{
+        margin: 0 auto;
+    }
+	#container {
+	    display: table;
+	}
+	#update {
+	    display: table-cell;
+	    vertical-align: middle;
+	    text-align: center;
+	}
+    .resultBox{
+        display: block;
+        height: 45%;
+        margin: 16px auto;
+        background-image: url('../../assets/imgs/scoreBack.jpg')!important;
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        border-radius: 10px;
+    }
+	.circle {
+        background-color:#fff;
+        border:3px solid #777;    
+        height:70px;
+        border-radius:50%;
+        -moz-border-radius:50%;
+        -webkit-border-radius:50%;
+        width:70px;
+    }
+    .fright{
+        float: right;
+    }
+    .fleft{
+        float: left;
+    }
+    .mCenter{
+        margin: 0 auto;
+    }
+    .follow{
+        padding-top:5px;
+        padding-bottom:5px;
+        border-top: 1px solid #fff;
+    }
+    .borderTop{
+        margin-top:5px;
+        border-top: 1px solid #fff;
+    }
+    .tile{
+        background-color: #0061cb;
+        padding: 5px 12px 5px 12px;
+        color: #fff;
+        border-radius: 25px;
+    }
+    
+    .resultBox{
+		-webkit-box-shadow: 0 4px 16px rgba(0,0,0,.12);
+     box-shadow: 0 4px 16px rgba(0,0,0,.12);
+     
+     .numero_ronda{ background-color: white; color: #333; padding: 3px; font-size: .8em;}
+     .estado{ text-transform: uppercase;}
+     
+     h4{ margin-top: 3px;}
+     .score{ background-color: #333; color: white; padding: 10px; font-size: 2.0em; border-radius: 50%; position: relative;
+    top: 10px;}
+    
+    .linearriba{ border-top: 1px solid #f4f4f4; margin-top: 15px; }
+    
+	}
+    
+}

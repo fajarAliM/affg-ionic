@@ -1,0 +1,110 @@
+// Styles for all of the user pages:
+// Login, Signup, Support
+
+newchallengestep3-page {
+    
+    font-family: 'Roboto', sans-serif; 
+
+    .list {
+        margin-bottom: 0;
+    }
+    
+
+    .item-divider{ background-color: transparent;}
+     .item .ion-label-stacked, .login-page .item .text-input{ color: color($colors, dark);}
+	
+	ion-label[stacked], ion-label[floating]{ color: #d4d4d4;}
+	
+     .item{ background: transparent; color: white; padding-left: 0 !important;}
+    
+     .item-inner{}
+    
+
+    /*.login-page .button-default{ background-color: white; color: color($colors, primary);}*/
+    
+    .item .ion-label-stacked, .item .text-input{ color: color($colors, dark);}
+    
+
+ .list{ margin-top: 10%;}
+    
+    .logo{ margin-bottom: 20%;
+	    
+	    img{ width: 70%;}
+	    h4{ margin-top: 20%;}
+	    
+    }
+    
+    .texto-legal{ color: color($colors, light); line-height: 20px;}
+    
+   
+   ion-label[stacked]{ margin-bottom: 0 !important; font-size: 1.5rem !important;}
+   
+   .button-block{ min-height: 41px;}
+    
+    .text-input, ion-datetime{
+    padding: 2px !important;
+    width: 100% !important;
+    border: solid black 1px !important;
+    height: 45px !important;
+    border-radius: 25px 25px 25px 25px !important;
+    text-align: center !important;
+    color: black !important;
+    background-color: white;
+}
+
+ion-datetime{ 
+	    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+
+.datetime-text{     line-height: 2.4em;}
+    
+    .scroll-content{ margin-bottom: 0px;}
+    
+    .card{ background-color: rgba(255,255,255,.03); border-radius: 6px; width: 100% !important; margin: 0 !important; margin-bottom: 20px !important;}
+    
+    .card-header{
+		text-align: left;
+				    padding: 15px 15px 16px;
+				        padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20px;
+    padding-bottom: 16px;
+
+		.card-subtitle{ font-size: 1.2rem;     margin: 6px 0px 2px; color: rgba(255,255,255,.5) !important;}
+		.card-title{ color: white; font-size: 1.6rem;
+   
+    text-overflow: ellipsis;}
+		
+	}
+    
+    .selected{ border:2px solid color($colors, primary) !important; background-color: color($colors, primary) !important;
+	    
+	    .card-header{
+		text-align: left;
+				    padding: 15px 15px 16px;
+				        padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20px;
+    padding-bottom: 16px;
+
+		.card-subtitle{ font-size: 1.2rem;     margin: 6px 0px 2px; color: color($colors, dark) !important;
+			
+			a{ color: white !important;}
+			
+		}
+		.card-title{ color: color($colors, dark); font-size: 1.6rem;
+   
+    text-overflow: ellipsis;}
+		
+	}
+	    
+    }
+    
+     ion-footer .row {
+    padding: 5px 10px;
+}
+    
+    
+}

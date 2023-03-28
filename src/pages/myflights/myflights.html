@@ -1,0 +1,170 @@
+<ion-header no-border color="backColor">
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <img src="assets/imgs/menu.svg">
+    </button>
+    <ion-title>{{ 'FLIGHTS' | translate }}</ion-title>
+  </ion-navbar>
+  <!--<ion-searchbar (ionInput)="SearchPlayers($event)"></ion-searchbar>-->
+  <!--<ion-searchbar padding (ionInput)="Search($event)"></ion-searchbar>-->
+</ion-header>
+
+<ion-content  class="backgroundColor">
+
+<div >
+  <ion-segment [(ngModel)]="tournamentSwitch">
+    <ion-segment-button value="futuras">
+      {{ 'OPEN' | translate }}
+    </ion-segment-button>
+
+    <ion-segment-button value="pasadas">
+      {{ 'CLOSED' | translate }}
+    </ion-segment-button>
+    
+
+   
+  </ion-segment>
+</div>
+
+  
+  <div  [ngSwitch]="tournamentSwitch">
+  	<div class="" padding *ngSwitchCase="'futuras'" text-center>
+  		
+  	<div *ngIf="logged">
+  		
+	  <div *ngFor="let t of salidas; index as i;">
+		  
+	  	<div class="golf" (click)="openFlight(t,rondas[i], true)"> 
+	    <ion-card class="card" >
+		    <!--<img *ngIf="t.Photo" src="data:image/png;base64,{{t.Photo}}">
+			<img *ngIf="!t.Photo" src="assets/imgs/placeholdert.jpg">-->
+		    <div class="card-header">
+			    <div class="card-title">{{t.Name}}</div>
+				<div class="card-subtitle"><ion-icon name="pin"></ion-icon> {{t.Locality}} | <ion-icon name="time"></ion-icon> {{t.Date1.date | moment:'D/M/YY' }} | {{ 'RONDA' | translate }} {{rondas[i]}}</div>
+		    </div>
+		</ion-card>
+	</div>
+
+	  </div>
+	  
+  	</div>
+  	
+  	<div *ngIf="!logged">
+	  	<button block ion-button round style="min-width: 80%" color="primary" (click)="openLogin()">
+                                        {{ 'CHALLENGES.LOGIN.LOGIN' | translate }}
+                                    </button>
+  	</div>
+  	
+	
+	
+  	</div>
+  	
+  	<div class="" padding *ngSwitchCase="'pasadas'" text-center>
+	  	
+	  	<div *ngIf="logged">
+	  	
+  <div *ngFor="let t of salidasPasadas; index as i;">
+  	<div class="golf"  (click)="openTournament(t)"> 
+	    <ion-card class="card" >
+		    <!--<img *ngIf="t.Photo" src="data:image/png;base64,{{t.Photo}}">
+			<img *ngIf="!t.Photo" src="assets/imgs/placeholdert.jpg">-->
+		    <div class="card-header">
+			    <div class="card-title">{{t.Name}}</div>
+				<div class="card-subtitle"><ion-icon name="pin"></ion-icon> {{t.Locality}} | <ion-icon name="time"></ion-icon> {{t.Date1.date | moment:'D/M/YY' }} | {{ 'RONDA' | translate }} {{rondasp[i]}}</div>
+		    </div>
+		</ion-card>
+	</div>
+  	 
+  </div>
+	
+	  	</div>
+	
+	<div *ngIf="!logged">
+	  	<button block ion-button round style="min-width: 80%" color="primary" (click)="openLogin()">
+                                        {{ 'CHALLENGES.LOGIN.LOGIN' | translate }}
+                                    </button>
+  	</div>
+	
+	
+  	</div>
+  	
+  	
+   	
+  	
+  	
+  </div>
+	
+  
+  
+                
+        <!-- <ion-fab right bottom>
+		    <button  (click)="doPrompt()" ion-fab color="primary"><ion-icon name="add"></ion-icon></button>
+		  </ion-fab> -->   
+
+</ion-content> 
+   
+<ion-footer>
+	<ion-toolbar>
+    
+    <ion-grid>
+    	<ion-row>
+			<ion-col>
+			      <a *ngIf="home" class="menu-inf-option has-title has-icon disable-hover" aria-selected="true" (click)="openMenu(1)">
+				    	<!--<ion-icon class="menu_inf-icon icon icon-ios ion-ios-home-outline" role="img" aria-label="home outline"></ion-icon>-->
+				    	<span class="icono"><img src="assets/imgs/1_active.svg" height="30px"></span>
+						<span class="menu-inf-text">{{ 'MENU1' | translate }}</span>
+					</a>
+					
+					<a *ngIf="!home" class="menu-inf-option has-title has-icon disable-hover" (click)="openMenu(1)">
+				    	<!--<ion-icon class="menu_inf-icon icon icon-ios ion-ios-home-outline" role="img" aria-label="home outline"></ion-icon>-->
+				    	<span class="icono"><img src="assets/imgs/1.svg" height="30px"></span>
+						<span class="menu-inf-text">{{ 'MENU1' | translate }}</span>
+					</a>
+					
+	  		</ion-col>
+	  		<ion-col>
+			      <a *ngIf="lineups" class="menu-inf-option has-title has-icon disable-hover" aria-selected="true" (click)="openMenu(2)">
+				    	<span class="icono"><img src="assets/imgs/2_active.svg" height="30px"></span>
+						<span class="menu-inf-text">{{ 'MENU2' | translate }}</span>
+					</a>
+					<a *ngIf="!lineups" class="menu-inf-option has-title has-icon disable-hover" (click)="openMenu(2)">
+				    	<span class="icono"><img src="assets/imgs/2.svg" height="30px"></span>
+						<span class="menu-inf-text">{{ 'MENU2' | translate }}</span>
+					</a>
+	  		</ion-col>  
+	  		<ion-col>
+			      <a *ngIf="courses" class="menu-inf-option has-title has-icon disable-hover" aria-selected="true" (click)="openMenu(3)">
+				    	<span class="icono"><img src="assets/imgs/3_active.svg" height="30px"></span>
+						<span class="menu-inf-text">{{ 'MENU3' | translate }}</span>
+					</a>
+					<a *ngIf="!courses" class="menu-inf-option has-title has-icon disable-hover" (click)="openMenu(3)">
+				    	<span class="icono"><img src="assets/imgs/3.svg" height="30px"></span>
+						<span class="menu-inf-text">{{ 'MENU3' | translate }}</span>
+					</a>
+	  		</ion-col>
+	  		<ion-col>
+			      <a *ngIf="rankings" class="menu-inf-option has-title has-icon disable-hover" aria-selected="true" (click)="openMenu(4)">
+				    	<span class="icono"><img src="assets/imgs/4_active.svg" height="30px"></span>
+						<span class="menu-inf-text">{{ 'MENU4' | translate }}</span>
+					</a>
+					<a *ngIf="!rankings" class="menu-inf-option has-title has-icon disable-hover" (click)="openMenu(4)">
+				    	<span class="icono"><img src="assets/imgs/4.svg" height="30px"></span>
+						<span class="menu-inf-text">{{ 'MENU4' | translate }}</span>
+					</a>
+	  		</ion-col>
+	  		<ion-col>
+			      <a class="menu-inf-option has-title has-icon disable-hover" menuToggle>
+				    	<span class="icono"><ion-icon name="more"></ion-icon></span>
+						<span class="menu-inf-text">{{ 'MENU5' | translate }}</span>
+					</a>
+	  		</ion-col>
+	  </ion-row>
+    </ion-grid>
+    
+    	
+    
+
+  </ion-toolbar>
+</ion-footer>
+
+

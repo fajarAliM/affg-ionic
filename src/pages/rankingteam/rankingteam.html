@@ -1,0 +1,125 @@
+<ion-header no-border color="backColor">
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <svg width="23px" height="16px" viewBox="0 0 23 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+                <desc>Created with Sketch.</desc>
+                <defs></defs>
+                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                    <g id="Home" transform="translate(-10.000000, -31.000000)" fill="#000000">
+                        <path d="M10,40.1428571 L10,37.8571429 L26.3555556,37.8571429 L26.3555556,40.1428571 L10,40.1428571 Z M10,33.2857143 L10,31 L33,31 L33,33.2857143 L10,33.2857143 Z M10,47 L10,44.7142857 L33,44.7142857 L33,47 L10,47 Z" id="ion-navicon---Ionicons"></path>
+                    </g>
+                </g>
+            </svg>
+    </button>
+    <ion-title><img src="assets/imgs/foot.png" height="40px" alt=""></ion-title>
+    
+    <ion-buttons end>
+      <button ion-button icon-only (click)="openMenuContextual()">
+        <ion-icon name="more"></ion-icon>
+      </button>
+    </ion-buttons>
+    
+  </ion-navbar>
+  <ion-searchbar padding (ionInput)="SearchPlayers($event)"></ion-searchbar>
+  
+</ion-header>
+
+<ion-content padding class="backgroundColor">
+
+<h1>{{categoryName}} Ranking</h1>
+	   
+  <ion-list>
+	  <ion-item *ngFor="let rank of ranking; index as j">
+	  
+	   <ion-grid>
+	    	<ion-row>
+			    <ion-col col-2>
+			      {{ rank.posicion }} 
+			      
+			        
+			        <img src="{{ rank.foto }}" width="16px">
+			    </ion-col>
+			    <ion-col col-8>
+			       {{ rank.nombre }} 
+		    
+			    </ion-col>
+			    <ion-col col-2 text-right>
+			      {{ rank.diferencia }}
+			    </ion-col>
+			  </ion-row>
+	    </ion-grid>
+	  </ion-item>
+	</ion-list>
+
+
+
+
+</ion-content>
+
+   <ion-footer>
+	<ion-toolbar>
+    
+    <ion-grid>
+    	<ion-row>
+			<ion-col>
+			      <a *ngIf="home" class="menu-inf-option has-title has-icon disable-hover" aria-selected="true" (click)="openMenu(1)">
+				    	<!--<ion-icon class="menu_inf-icon icon icon-ios ion-ios-home-outline" role="img" aria-label="home outline"></ion-icon>-->
+				    	<span class="icono"><img src="assets/imgs/1_active.svg" height="30px"></span>
+						<span class="menu-inf-text">HOME</span>
+					</a>
+					
+					<a *ngIf="!home" class="menu-inf-option has-title has-icon disable-hover" (click)="openMenu(1)">
+				    	<!--<ion-icon class="menu_inf-icon icon icon-ios ion-ios-home-outline" role="img" aria-label="home outline"></ion-icon>-->
+				    	<span class="icono"><img src="assets/imgs/1.svg" height="30px"></span>
+						<span class="menu-inf-text">HOME</span>
+					</a>
+					
+	  		</ion-col>
+	  		<ion-col>
+			      <a *ngIf="lineups" class="menu-inf-option has-title has-icon disable-hover" aria-selected="true" (click)="openMenu(2)">
+				    	<span class="icono"><img src="assets/imgs/2_active.svg" height="30px"></span>
+						<span class="menu-inf-text">LINE UPS</span>
+					</a>
+					<a *ngIf="!lineups" class="menu-inf-option has-title has-icon disable-hover" (click)="openMenu(2)">
+				    	<span class="icono"><img src="assets/imgs/2.svg" height="30px"></span>
+						<span class="menu-inf-text">LINE UPS</span>
+					</a>
+	  		</ion-col>  
+	  		<ion-col>
+			      <a *ngIf="flights" class="menu-inf-option has-title has-icon disable-hover" aria-selected="true" (click)="openMenu(3)">
+				    	<span class="icono"><img src="assets/imgs/3_active.svg" height="30px"></span>
+						<span class="menu-inf-text">FLIGHTS</span>
+					</a>
+					<a *ngIf="!flights" class="menu-inf-option has-title has-icon disable-hover" (click)="openMenu(3)">
+				    	<span class="icono"><img src="assets/imgs/3.svg" height="30px"></span>
+						<span class="menu-inf-text">FLIGHTS</span>
+					</a>
+	  		</ion-col>
+	  		<ion-col>
+			      <a *ngIf="rankings" class="menu-inf-option has-title has-icon disable-hover" aria-selected="true" (click)="openMenu(4)">
+				    	<span class="icono"><img src="assets/imgs/4_active.svg" height="30px"></span>
+						<span class="menu-inf-text">RANKINGS</span>
+					</a>
+					<a *ngIf="!rankings" class="menu-inf-option has-title has-icon disable-hover" (click)="openMenu(4)">
+				    	<span class="icono"><img src="assets/imgs/4.svg" height="30px"></span>
+						<span class="menu-inf-text">RANKINGS</span>
+					</a>
+	  		</ion-col>
+	  		<ion-col>
+			      <a class="menu-inf-option has-title has-icon disable-hover" (click)="openMenu(5)">
+				    	<span class="icono"><img src="assets/imgs/5.svg" height="30px"></span>
+						<span class="menu-inf-text">LIVE</span>
+					</a>
+	  		</ion-col>
+	  </ion-row>
+    </ion-grid>
+    
+    	
+    
+
+  </ion-toolbar>
+</ion-footer>
+
+
+

@@ -1,0 +1,133 @@
+
+
+
+<ion-header no-border color="backColor">
+  <ion-navbar hideBackButton>
+    <ion-title>{{ tournamentType.Name }}</ion-title>
+    <ion-buttons left>
+        <button ion-button icon-only (click)="viewCtrl.dismiss()">
+            <ion-icon name="arrow-back"></ion-icon>
+        </button>
+    </ion-buttons>
+  </ion-navbar>
+  <ion-searchbar debounce="700" padding (ionInput)="Search($event)"></ion-searchbar>
+</ion-header>
+
+
+<ion-content  class="backgroundColor">
+	
+	
+	<a href="https://www.footgolf-france.fr/inscription" target="_blank"><img src="assets/imgs/banner_inscription.jpg" style="width:100%"></a>
+
+	
+
+<!--<div >
+  <ion-segment [(ngModel)]="tournamentSwitch">
+    <ion-segment-button value="open">
+      {{ 'OPEN' | translate }}
+    </ion-segment-button>
+    <ion-segment-button value="closed">
+      {{ 'CLOSED' | translate }}
+    </ion-segment-button>
+  </ion-segment>
+</div>-->
+
+
+<div padding >
+
+    
+    
+    <div class="golf" *ngFor="let t of tournaments" (click)="openTournament(t)"> 
+	    <ion-card class="card" >
+		    <!--<img *ngIf="t.Photo" src="data:image/png;base64,{{t.Photo}}">
+			<img *ngIf="!t.Photo" src="assets/imgs/placeholdert.jpg">-->
+		    <div class="card-header">
+			    <div class="card-title">{{t.Name}}</div>
+				<div class="card-subtitle">{{t.Locality}} | {{t.Date1.date | moment:'D/M/YY' }}</div>
+		    </div>
+		</ion-card>
+	</div>
+    
+    
+
+    
+  <!--</ion-list>-->
+	
+<!-- Scroll Infinito -->
+    <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+		<ion-infinite-scroll-content></ion-infinite-scroll-content>
+	</ion-infinite-scroll>
+	
+   
+	
+</div>	
+	
+	
+	
+	
+	
+</ion-content>
+
+<ion-footer>
+	<ion-toolbar>
+    
+    <ion-grid>
+    	<ion-row>
+			<ion-col>
+			      <a *ngIf="home" class="menu-inf-option has-title has-icon disable-hover" aria-selected="true" (click)="openMenu(1)">
+				    	<!--<ion-icon class="menu_inf-icon icon icon-ios ion-ios-home-outline" role="img" aria-label="home outline"></ion-icon>-->
+				    	<span class="icono"><img src="assets/imgs/1_active.svg" height="30px"></span>
+						<span class="menu-inf-text">{{ 'MENU1' | translate }}</span>
+					</a>
+					
+					<a *ngIf="!home" class="menu-inf-option has-title has-icon disable-hover" (click)="openMenu(1)">
+				    	<!--<ion-icon class="menu_inf-icon icon icon-ios ion-ios-home-outline" role="img" aria-label="home outline"></ion-icon>-->
+				    	<span class="icono"><img src="assets/imgs/1.svg" height="30px"></span>
+						<span class="menu-inf-text">{{ 'MENU1' | translate }}</span>
+					</a>
+					
+	  		</ion-col>
+	  		<ion-col>
+			      <a *ngIf="lineups" class="menu-inf-option has-title has-icon disable-hover" aria-selected="true" (click)="openMenu(2)">
+				    	<span class="icono"><img src="assets/imgs/2_active.svg" height="30px"></span>
+						<span class="menu-inf-text">{{ 'MENU2' | translate }}</span>
+					</a>
+					<a *ngIf="!lineups" class="menu-inf-option has-title has-icon disable-hover" (click)="openMenu(2)">
+				    	<span class="icono"><img src="assets/imgs/2.svg" height="30px"></span>
+						<span class="menu-inf-text">{{ 'MENU2' | translate }}</span>
+					</a>
+	  		</ion-col>  
+	  		<ion-col>
+			      <a *ngIf="courses" class="menu-inf-option has-title has-icon disable-hover" aria-selected="true" (click)="openMenu(3)">
+				    	<span class="icono"><img src="assets/imgs/3_active.svg" height="30px"></span>
+						<span class="menu-inf-text">{{ 'MENU3' | translate }}</span>
+					</a>
+					<a *ngIf="!courses" class="menu-inf-option has-title has-icon disable-hover" (click)="openMenu(3)">
+				    	<span class="icono"><img src="assets/imgs/3.svg" height="30px"></span>
+						<span class="menu-inf-text">{{ 'MENU3' | translate }}</span>
+					</a>
+	  		</ion-col>
+	  		<ion-col>
+			      <a *ngIf="rankings" class="menu-inf-option has-title has-icon disable-hover" aria-selected="true" (click)="openMenu(4)">
+				    	<span class="icono"><img src="assets/imgs/4_active.svg" height="30px"></span>
+						<span class="menu-inf-text">{{ 'MENU4' | translate }}</span>
+					</a>
+					<a *ngIf="!rankings" class="menu-inf-option has-title has-icon disable-hover" (click)="openMenu(4)">
+				    	<span class="icono"><img src="assets/imgs/4.svg" height="30px"></span>
+						<span class="menu-inf-text">{{ 'MENU4' | translate }}</span>
+					</a>
+	  		</ion-col>
+	  		<ion-col>
+			      <a class="menu-inf-option has-title has-icon disable-hover" menuToggle>
+				    	<span class="icono"><ion-icon name="more"></ion-icon></span>
+						<span class="menu-inf-text">{{ 'MENU5' | translate }}</span>
+					</a>
+	  		</ion-col>
+	  </ion-row>
+    </ion-grid>
+    
+    	
+    
+
+  </ion-toolbar>
+</ion-footer>

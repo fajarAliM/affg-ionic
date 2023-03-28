@@ -1,0 +1,20 @@
+<ion-header no-border color="backColor">
+  <ion-navbar hideBackButton>
+    <ion-title>{{ 'ADDSCORE' | translate }}</ion-title>
+    <ion-buttons left>
+        <button ion-button icon-only (click)="viewCtrl.dismiss()">
+            <ion-icon name="arrow-back"></ion-icon>
+        </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="backgroundColor">
+
+      
+      
+            <ion-input type="text" [(ngModel)]="match" placeholder="{{ 'FLIGHTNUMBER' | translate }}"></ion-input>
+          <button margin-top block ion-button round color="primary" text-center (click)="gotoMatch()">{{ 'FINDFLIGHT' | translate }}</button>
+      
+</ion-content>
+

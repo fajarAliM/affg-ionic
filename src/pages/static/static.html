@@ -1,0 +1,94 @@
+<ion-header no-border color="backColor">
+  <ion-navbar>
+    <button ion-button menuToggle>
+     <svg width="23px" height="16px" viewBox="0 0 23 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+                <desc>Created with Sketch.</desc>
+                <defs></defs>
+                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                    <g id="Home" transform="translate(-10.000000, -31.000000)" fill="#ffffff">
+                        <path d="M10,40.1428571 L10,37.8571429 L26.3555556,37.8571429 L26.3555556,40.1428571 L10,40.1428571 Z M10,33.2857143 L10,31 L33,31 L33,33.2857143 L10,33.2857143 Z M10,47 L10,44.7142857 L33,44.7142857 L33,47 L10,47 Z" id="ion-navicon---Ionicons"></path>
+                    </g>
+                </g>
+            </svg>
+    </button>
+    <ion-title><img src="assets/imgs/logo_affg.png" height="35px" class="logo" alt=""></ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding class="backgroundColor">
+	
+	<div class="noticia" *ngFor="let n of noticias">
+		<div *ngIf="n.State != 0">
+			<h2>{{ n.Title }}</h2>
+			<div [innerHTML]="n.Document"></div>	
+		</div>
+	
+	</div>
+		
+
+</ion-content>
+<ion-footer>
+	<ion-toolbar>
+    
+    <ion-grid>
+    	<ion-row>
+			<ion-col>
+			      <a *ngIf="home" class="menu-inf-option has-title has-icon disable-hover" aria-selected="true" (click)="openMenu(1)">
+				    	<!--<ion-icon class="menu_inf-icon icon icon-ios ion-ios-home-outline" role="img" aria-label="home outline"></ion-icon>-->
+				    	<span class="icono"><img src="assets/imgs/1_active.svg" height="30px"></span>
+						<span class="menu-inf-text">{{ 'MENU1' | translate }}</span>
+					</a>
+					
+					<a *ngIf="!home" class="menu-inf-option has-title has-icon disable-hover" (click)="openMenu(1)">
+				    	<!--<ion-icon class="menu_inf-icon icon icon-ios ion-ios-home-outline" role="img" aria-label="home outline"></ion-icon>-->
+				    	<span class="icono"><img src="assets/imgs/1.svg" height="30px"></span>
+						<span class="menu-inf-text">{{ 'MENU1' | translate }}</span>
+					</a>
+					
+	  		</ion-col>
+	  		<ion-col>
+			      <a *ngIf="lineups" class="menu-inf-option has-title has-icon disable-hover" aria-selected="true" (click)="openMenu(2)">
+				    	<span class="icono"><img src="assets/imgs/2_active.svg" height="30px"></span>
+						<span class="menu-inf-text">{{ 'MENU2' | translate }}</span>
+					</a>
+					<a *ngIf="!lineups" class="menu-inf-option has-title has-icon disable-hover" (click)="openMenu(2)">
+				    	<span class="icono"><img src="assets/imgs/2.svg" height="30px"></span>
+						<span class="menu-inf-text">{{ 'MENU2' | translate }}</span>
+					</a>
+	  		</ion-col>  
+	  		<ion-col>
+			      <a *ngIf="courses" class="menu-inf-option has-title has-icon disable-hover" aria-selected="true" (click)="openMenu(3)">
+				    	<span class="icono"><img src="assets/imgs/3_active.svg" height="30px"></span>
+						<span class="menu-inf-text">{{ 'MENU3' | translate }}</span>
+					</a>
+					<a *ngIf="!courses" class="menu-inf-option has-title has-icon disable-hover" (click)="openMenu(3)">
+				    	<span class="icono"><img src="assets/imgs/3.svg" height="30px"></span>
+						<span class="menu-inf-text">{{ 'MENU3' | translate }}</span>
+					</a>
+	  		</ion-col>
+	  		<ion-col>
+			      <a *ngIf="rankings" class="menu-inf-option has-title has-icon disable-hover" aria-selected="true" (click)="openMenu(4)">
+				    	<span class="icono"><img src="assets/imgs/4_active.svg" height="30px"></span>
+						<span class="menu-inf-text">{{ 'MENU4' | translate }}</span>
+					</a>
+					<a *ngIf="!rankings" class="menu-inf-option has-title has-icon disable-hover" (click)="openMenu(4)">
+				    	<span class="icono"><img src="assets/imgs/4.svg" height="30px"></span>
+						<span class="menu-inf-text">{{ 'MENU4' | translate }}</span>
+					</a>
+	  		</ion-col>
+	  		<ion-col>
+			      <a class="menu-inf-option has-title has-icon disable-hover" menuToggle>
+				    	<span class="icono"><ion-icon name="more"></ion-icon></span>
+						<span class="menu-inf-text">{{ 'MENU5' | translate }}</span>
+					</a>
+	  		</ion-col>
+	  </ion-row>
+    </ion-grid>
+    
+    	
+    
+
+  </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,110 @@
+<ion-header no-border color="backColor">
+  <ion-navbar hideBackButton>
+    <ion-title><img src="assets/imgs/logo_affg.png" height="35px" class="logo" alt=""></ion-title>
+    <ion-buttons left>
+        <button ion-button icon-only (click)="viewCtrl.dismiss()">
+            <ion-icon name="arrow-back"></ion-icon>
+        </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="backgroundColor">
+
+
+<div padding>
+	<h4>Would you like to invite some players to the challenge?</h4>
+	<p>You can invite as many players as you wish, however only the first {{challenge.spots}} Players that accept the challenge will be added to the same.</p>
+</div>
+
+
+<div >
+	
+	
+  <ion-segment [(ngModel)]="clubSwitch">
+    <ion-segment-button value="allplayers">
+      {{ 'ALLPLAYERS' | translate }}
+    </ion-segment-button>
+    <ion-segment-button value="players">
+      {{ 'PLAYERS' | translate }}
+    </ion-segment-button>
+  </ion-segment>
+</div>
+	
+	
+	<div  [ngSwitch]="clubSwitch">
+		   <ion-list padding *ngSwitchCase="'allplayers'">
+		    
+		    
+			    <ion-item *ngFor="let p of allPlayers" (click)="addPlayer(p)" [class.seleccionada]="isActive">
+			      <ion-thumbnail item-start>
+			        <img *ngIf="p.Photo" src="data:image/png;base64,{{p.Photo}}">
+			        <ion-icon *ngIf="!p.Photo" name="contact"></ion-icon>
+			        
+			      </ion-thumbnail>
+			      <h2><img src="assets/imgs/flags/{{p.Country | uppercase}}.svg" width="16px"> {{p.LastName}}, {{p.FirstName}}</h2>
+			      <p class="note">{{p.Country}}</p>
+			    </ion-item>
+		    
+		    
+		    <ion-item *ngFor="let p of allPlayers" (click)="addPlayer(p)">
+		      <ion-thumbnail item-start>
+		        <img *ngIf="p.Photo" src="data:image/png;base64,{{p.Photo}}">
+		        <ion-icon *ngIf="!p.Photo" name="contact"></ion-icon>
+		        
+		      </ion-thumbnail>
+		      <h2><img src="assets/imgs/flags/{{p.Country | uppercase}}.svg" width="16px"> {{p.LastName}}, {{p.FirstName}}</h2>
+		      <p class="note">{{p.Country}}</p>
+		    </ion-item>
+		    
+		    
+		  </ion-list>
+		
+		  <ion-list padding *ngSwitchCase="'players'">
+		    <ion-item-sliding *ngFor="let p of selectedPlayers">
+			    <ion-item>
+			      <ion-thumbnail item-start>
+			        <img *ngIf="p.Photo" src="data:image/png;base64,{{p.Photo}}">
+			        <ion-icon *ngIf="!p.Photo" name="contact"></ion-icon>
+			        
+			      </ion-thumbnail>
+			      <h2><img src="assets/imgs/flags/{{p.Country | uppercase}}.svg" width="16px"> {{p.LastName}}, {{p.FirstName}}</h2>
+			      <p class="note">{{p.Country}}</p>
+			    </ion-item>
+			    
+			    <ion-item-options side="right">
+			      <button ion-button color="danger" (click)="deletePlayer(p)">
+			        <ion-icon name="trash"></ion-icon>
+			        DELETE
+			      </button>
+			      
+				</ion-item-options>
+			    
+		    </ion-item-sliding>
+		  </ion-list>
+  
+	</div>
+
+<!-- Scroll Infinito -->
+    <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+		<ion-infinite-scroll-content></ion-infinite-scroll-content>
+	</ion-infinite-scroll>
+
+</ion-content>
+
+<ion-footer no-border>
+                        
+                        <ion-grid>
+						  <ion-row>
+						    <ion-col col-12>
+						      <button ion-button round color="primary" block text-uppercase block icon-right (click)="saveAndNext()">{{ 'CHALLENGES.NEW.BUTTON' | translate }}<ion-icon name="arrow-round-forward"></ion-icon></button>
+						    </ion-col>
+						    
+						     
+						    
+						  </ion-row>
+						</ion-grid>
+                        
+                  
+                        
+</ion-footer>

@@ -1,0 +1,86 @@
+<ion-content class="newteam-page">
+
+    <form [formGroup]="formLogin" novalidate (submit)="doLogin()">
+        <ion-grid fixed>
+            <ion-row>
+                <ion-col col-sm-2 col-md-3 col-lg-4 col-xl-3>
+                </ion-col>
+                <ion-col col-12 col-sm-8 col-md-6 col-lg-4 col-xl-6>
+
+                    <ion-list>
+
+                        <ion-grid>
+                            <ion-row>
+                                <ion-col text-center>
+
+                                    <div class="logo">
+                                        <img src="{{global.url_assets}}www/assets/imgs/logo.png" alt="Logo">
+
+                                        
+
+                                    </div>
+                                    <ion-item>
+                                        <ion-label stacked>Login</ion-label>
+                                        <ion-input formControlName="email" type="email"></ion-input>
+                                    </ion-item>
+                                    <div class="error-msg">
+                                       <p ion-text color="danger" *ngIf="!formLogin.controls.email.valid && submitAttempt2">User no valido</p>
+                                    </div>
+
+                                    <ion-item>
+                                        <ion-label stacked>Password</ion-label>
+                                        <ion-input formControlName="password" type="password"></ion-input>
+                                    </ion-item>
+                                    <div class="error-msg">
+                                        <p ion-text color="danger" *ngIf="!formLogin.controls.password.valid && submitAttempt1">Password no Valido</p>
+                                    </div>
+
+                                </ion-col>
+                            </ion-row>
+
+
+
+                            <ion-row>
+
+                                <ion-col col-12 text-center>
+                                    <button type="submit" ion-button block color="primary">
+                                        Submit
+                                    </button>
+                                </ion-col>
+
+                                <ion-col col-12 text-center>
+                                	<button type="button" ion-button block color="primary" (click)="openPage('recover-password')">
+                                        Recover Password
+                                    </button>
+                                </ion-col>
+                                
+                                <ion-col col-12 text-center>
+                                	<button type="button" ion-button block color="primary" (click)="openPage('register')">
+                                        Register
+                                    </button>
+                                </ion-col>
+                                
+                                <!----- QUITAR PARA 0.0.5 --->
+                                
+                                <ion-col col-12 text-center>
+                                	<button type="button" ion-button block color="primary" (click)="openPage('profile')">
+                                        Profile
+                                    </button>
+                                </ion-col> 
+                                
+                            </ion-row>
+                        </ion-grid>
+
+
+
+                        <div padding text-center>
+                            <h4 color="secundary">FootGolf</h4>
+                        </div>
+
+                    </ion-list>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+   </form>
+
+</ion-content>

@@ -1,0 +1,168 @@
+<ion-header no-border color="backColor">
+  <ion-navbar hideBackButton>
+    
+    <ion-title>{{infoTorneo.Name}}</ion-title>
+   <ion-buttons left>
+        <button ion-button icon-only (click)="viewCtrl.dismiss()">
+            <ion-icon name="arrow-back"></ion-icon>
+        </button>
+    </ion-buttons>
+  </ion-navbar>
+    <!--<ion-searchbar (ionInput)="SearchPlayers($event)"></ion-searchbar>-->
+
+</ion-header>
+
+<ion-content padding class="backgroundColor">
+	
+	
+	<ion-segment [(ngModel)]="rondaSwitch">
+    	<ion-segment-button *ngIf="infoTorneo.NbRounds > 0"  (ionSelect)="onSegmentChange(1)" value="ronda1">
+			{{ 'ROUND' | translate }} 1
+		</ion-segment-button>
+		
+		<ion-segment-button *ngIf="infoTorneo.NbRounds > 1"  (ionSelect)="onSegmentChange(2)" value="ronda2">
+			{{ 'ROUND' | translate }} 2
+		</ion-segment-button>
+		
+		<ion-segment-button *ngIf="infoTorneo.NbRounds > 2"  (ionSelect)="onSegmentChange(3)" value="ronda3">
+			{{ 'ROUND' | translate }} 3
+		</ion-segment-button>
+		
+		<ion-segment-button *ngIf="infoTorneo.NbRounds > 3"  (ionSelect)="onSegmentChange(4)" value="ronda4">
+			{{ 'ROUND' | translate }} 4
+		</ion-segment-button>
+      
+  </ion-segment>
+	
+	
+	<div  [ngSwitch]="rondaSwitch">
+	
+	<div *ngIf="infoTorneo.NbRounds > 0">
+	<div *ngSwitchCase="'ronda1'">
+	
+		<ion-searchbar debounce="700" (ionInput)="SearchFlight($event, 1)"></ion-searchbar>
+	
+	    <ion-list *ngFor="let salida of salidas" >
+			
+		    <ion-list-header><h4>{{infoTorneo.NameParcours[salida.NumParcours]}}</h4><ion-note item-end><ion-icon ios="ios-flag-outline" md="ios-flag-outline"></ion-icon> {{ 'HOYO' | translate }} {{salida.HoleStart}}</ion-note></ion-list-header>
+		
+		    <ion-item *ngFor="let jugador of salida.Registers">
+		      <ion-thumbnail item-start>
+		        <img *ngIf="jugador.Licence.Photo" src="data:image/png;base64,{{jugador.Licence.Photo}}">
+				<ion-icon *ngIf="!jugador.Licence.Photo" name="contact"></ion-icon>
+		      </ion-thumbnail>
+		      <h2>{{jugador.Licence.LastName}}, {{jugador.Licence.FirstName}}</h2>
+		      <p>{{salida.HourStart.date}}</p>
+		      
+		    </ion-item>
+		    
+		    
+	    
+	    </ion-list>
+                
+             <!-- Scroll Infinito -->
+    <ion-infinite-scroll (ionInfinite)="doInfinite($event,1)">
+		<ion-infinite-scroll-content></ion-infinite-scroll-content>
+	</ion-infinite-scroll>
+	
+	</div>
+	</div>
+	
+	
+	<div *ngIf="infoTorneo.NbRounds > 1">
+	<div *ngSwitchCase="'ronda2'">
+	<ion-searchbar debounce="700" (ionInput)="SearchFlight($event, 2)"></ion-searchbar>
+	    <ion-list *ngFor="let salida of salidas" >
+			
+		    <ion-list-header><h4>{{infoTorneo.NameParcours[salida.NumParcours]}}</h4><ion-note item-end><ion-icon ios="ios-flag-outline" md="ios-flag-outline"></ion-icon> {{ 'HOYO' | translate }} {{salida.HoleStart}}</ion-note></ion-list-header>
+		
+		    <ion-item *ngFor="let jugador of salida.Registers">
+		      <ion-thumbnail item-start>
+		        <img *ngIf="jugador.Licence.Photo" src="data:image/png;base64,{{jugador.Licence.Photo}}">
+				<ion-icon *ngIf="!jugador.Licence.Photo" name="contact"></ion-icon>
+		      </ion-thumbnail>
+		      <h2>{{jugador.Licence.LastName}}, {{jugador.Licence.FirstName}}</h2>
+		      <p>{{salida.HourStart.date}}</p>
+		      
+		    </ion-item>
+		    
+		    
+	    
+	    </ion-list>
+                
+             <!-- Scroll Infinito -->
+    <ion-infinite-scroll (ionInfinite)="doInfinite($event,2)">
+		<ion-infinite-scroll-content></ion-infinite-scroll-content>
+	</ion-infinite-scroll>
+	
+	</div>
+	</div>
+	
+	<div *ngIf="infoTorneo.NbRounds > 2">
+	<div *ngSwitchCase="'ronda3'">
+	<ion-searchbar debounce="700" (ionInput)="SearchFlight($event, 3)"></ion-searchbar>
+	    <ion-list *ngFor="let salida of salidas" >
+			
+		    <ion-list-header><h4>{{infoTorneo.NameParcours[salida.NumParcours]}}</h4><ion-note item-end><ion-icon ios="ios-flag-outline" md="ios-flag-outline"></ion-icon> {{ 'HOYO' | translate }} {{salida.HoleStart}}</ion-note></ion-list-header>
+		
+		    <ion-item *ngFor="let jugador of salida.Registers">
+		      <ion-thumbnail item-start>
+		        <img *ngIf="jugador.Licence.Photo" src="data:image/png;base64,{{jugador.Licence.Photo}}">
+				<ion-icon *ngIf="!jugador.Licence.Photo" name="contact"></ion-icon>
+		      </ion-thumbnail>
+		      <h2>{{jugador.Licence.LastName}}, {{jugador.Licence.FirstName}}</h2>
+		      <p>{{salida.HourStart.date}}</p>
+		      
+		    </ion-item>
+		    
+		    
+	    
+	    </ion-list>
+                
+             <!-- Scroll Infinito -->
+    <ion-infinite-scroll (ionInfinite)="doInfinite($event,3)">
+		<ion-infinite-scroll-content></ion-infinite-scroll-content>
+	</ion-infinite-scroll>
+	
+	</div>
+	</div>
+	
+	
+	<div *ngIf="infoTorneo.NbRounds > 3">
+	<div *ngSwitchCase="'ronda4'">
+	<ion-searchbar debounce="700" (ionInput)="SearchFlight($event, 4)"></ion-searchbar>
+	    <ion-list *ngFor="let salida of salidas" >
+			
+		    <ion-list-header><h4>{{infoTorneo.NameParcours[salida.NumParcours]}}</h4><ion-note item-end><ion-icon ios="ios-flag-outline" md="ios-flag-outline"></ion-icon> {{ 'HOYO' | translate }} {{salida.HoleStart}}</ion-note></ion-list-header>
+		
+		    <ion-item *ngFor="let jugador of salida.Registers">
+		      <ion-thumbnail item-start>
+		        <img *ngIf="jugador.Licence.Photo" src="data:image/png;base64,{{jugador.Licence.Photo}}">
+				<ion-icon *ngIf="!jugador.Licence.Photo" name="contact"></ion-icon>
+		      </ion-thumbnail>
+		      <h2>{{jugador.Licence.LastName}}, {{jugador.Licence.FirstName}}</h2>
+		      <p>{{salida.HourStart.date}}</p>
+		      
+		    </ion-item>
+		    
+		    
+	    
+	    </ion-list>
+                
+             <!-- Scroll Infinito -->
+    <ion-infinite-scroll (ionInfinite)="doInfinite($event,4)">
+		<ion-infinite-scroll-content></ion-infinite-scroll-content>
+	</ion-infinite-scroll>
+	
+	</div>
+	</div>
+	
+	
+	
+</div> <!-- End segment -->
+	
+
+</ion-content> 
+   
+  
+

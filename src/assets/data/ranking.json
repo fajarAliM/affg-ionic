@@ -1,0 +1,19 @@
+{
+  "ranking": [
+    {
+      "id": "1",
+      "name": "Player Name 1",
+      "total": "74"
+    },
+    {
+      "id": "2",
+      "name": "Player Name 2",
+      "total": "85"
+    },
+    {
+      "id": "3",
+      "name": "Player Name 3",
+      "total": "89"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+page-match {
+
+}
+.green{
+	background-color:green; float:left;	
+}
+.red{
+	background-color:red;	float:left;
+}
+.black{
+	background-color:black; float:left;
+}
+.blue{
+	background-color:blue; float:left;
+}
+.escudito{
+    height: 50px;
+    width: 50px;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    border-radius: 50%;
+    background-size: 100% auto;
+    position:relative;
+    left:50%;
+    margin-left:-50px
+}
+.marcador{
+	font-size:38px;
+	position:relative;
+	top:30%
+}

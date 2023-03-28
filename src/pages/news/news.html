@@ -1,0 +1,28 @@
+<ion-header no-border color="backColor">
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title><img src="assets/imgs/foot.png" height="40px" alt=""></ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="backgroundColor">
+  
+  <div padding *ngFor="let n of noticias" (click)="openNews(n)">
+    <div class="imgContainer">
+        <img src="assets/imgs/footgolf-spain.jpg" class="newsImg" alt="Snow" style="width:100%;">
+        <div class="bottom-left">
+          <ion-item class="trans" no-lines>
+            <p ion-text color="light">{{ n.fecha }}</p>
+            <h4 ion-text color="light">{{ n.titulo }}</h4>
+          </ion-item>
+        </div>
+    </div>
+  </div>
+
+<div *ngFor="let b of banner" padding-top>
+    <img src="assets/imgs/banner2.jpg" style="width:100%">
+</div>
+  
+</ion-content>

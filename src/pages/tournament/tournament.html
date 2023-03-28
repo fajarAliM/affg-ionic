@@ -1,0 +1,133 @@
+<ion-header no-border color="backColor">
+  <ion-navbar hideBackButton>
+    <ion-title><img src="assets/imgs/logo_affg.png" height="35px" class="logo" alt=""></ion-title>
+    <ion-buttons left>
+        <button ion-button icon-only (click)="viewCtrl.dismiss()">
+            <ion-icon name="arrow-back"></ion-icon>
+        </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="backgroundColor">
+
+<div >
+  <ion-segment [(ngModel)]="tournamentSwitch">
+    <ion-segment-button value="info">
+      {{ 'INFO' | translate }}
+    </ion-segment-button>
+	<ion-segment-button *ngIf="pasado" value="rank" (click)="openRank(infoCompeticion)">
+      {{ 'RANK' | translate }}
+    </ion-segment-button>
+    <ion-segment-button *ngIf="!pasado" value="rank" (click)="openBrowser(infoCompeticion)">
+      {{ 'RANK' | translate }}
+    </ion-segment-button>
+    
+    
+    <ion-segment-button value="flights" (click)="openFlights(infoCompeticion)">
+      {{ 'FLIGHTS' | translate }}
+    </ion-segment-button>
+    
+    <ion-segment-button value="sponsors">
+      {{ 'SPONSORS' | translate }}
+    </ion-segment-button>
+    
+    <!--<ion-segment-button value="inscription">
+      {{ 'INSCRIPCION' | translate }}
+    </ion-segment-button>-->
+    <ion-segment-button *ngIf="toLogin" value="inscription" (click)="openLogin()">
+      {{ 'INSCRIPCION' | translate }}
+    </ion-segment-button>
+    <ion-segment-button *ngIf="!toLogin" value="inscription">
+      {{ 'INSCRIPCION' | translate }}
+    </ion-segment-button>
+    
+  </ion-segment>
+</div>
+	
+	
+	<div  [ngSwitch]="tournamentSwitch">
+  <div class="teamCard" padding *ngSwitchCase="'info'" text-center>
+    <h1>{{nombre}}</h1>
+    <p class="note">{{localidad}} | {{fecha}}</p>
+    
+    <ion-thumbnail>
+        <img src="https://www.footgolf-france.fr/media/cache/evenement/{{competicionId}}_{{global.anyo}}">
+        
+      </ion-thumbnail>
+      
+      
+   <div *ngIf="descripcion" [innerHTML]="descripcion"></div>   
+    
+    
+    <div class="puntos">
+	    
+	    <ion-list>
+	    	<ion-list-header>
+		    	<ion-item>
+			  
+			  	<ion-row>
+				    <ion-col col-4 text-center>
+				      {{ 'RANK' | translate }}
+				    </ion-col>
+				    <ion-col col-8 text-center>
+				    {{ 'POINTS' | translate }}
+				    </ion-col>
+			  	</ion-row>
+			  
+			  </ion-item>
+	    	</ion-list-header>
+		  <ion-item *ngFor="let p of puntos; let i = index">
+		  
+		  	<ion-row>
+			    <ion-col col-4 text-center>
+			      {{i+1}}
+			    </ion-col>
+			    <ion-col col-8 text-center>
+			    {{p}}
+			    </ion-col>
+		  	</ion-row>
+		  
+		  </ion-item>  
+		</ion-list>
+	    
+    </div>
+    
+
+    
+  </div>
+
+  
+  <ion-list padding *ngSwitchCase="'sponsors'">
+    
+    
+    
+    <ion-item *ngFor="let s of sponsors" text-center>
+      <img src="https://www.footgolf-france.fr/media/cache/competition_sponsor/{{s.Slug}}">
+    </ion-item>
+
+    
+  </ion-list>
+  
+  
+  
+  
+  
+  <div padding *ngSwitchCase="'inscription'">
+	  	  
+	  	<iframe  class= 'webPage' name= "samplePage" [src]="urlInscripcion"></iframe>
+	  	  
+  </div>
+  
+  
+  
+  
+	</div>
+	
+
+<!--<ion-fab right bottom>
+    <button (click)="openRank(infoCompeticion)" ion-fab color="primary"><ion-icon name="trophy"></ion-icon></button>
+  </ion-fab>-->
+
+</ion-content>
+

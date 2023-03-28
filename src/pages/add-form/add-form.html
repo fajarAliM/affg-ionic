@@ -1,0 +1,199 @@
+<ion-header no-border color="backColor">
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <img src="assets/imgs/menu.svg">
+    </button>
+    <ion-title>Flight</ion-title>
+  </ion-navbar>
+</ion-header>
+  
+  <ion-content class="backgroundColor">
+  
+  		
+  	<div *ngIf="flight_encontrado">
+  	
+  	<div class="cabecera" padding>
+  	
+  	
+  			<h1>{{match.Name}}</h1>
+  			
+  			<h3 text-center>{{ 'RONDA' | translate }}: {{equipo.Round + 1}}</h3>
+  			
+  		
+  			<!--<h6 ion-text color="menuButton">Course</h6>
+  			<h2>{{campo_juego}}</h2>
+  		
+  			<h6 ion-text color="menuButton">Time</h6>
+  			<h2>{{hora_inicio}}</h2>-->
+  		
+  			<!--<h6 ion-text color="menuButton">Starting </h6>
+  			<h2>Hole {{hoyo_salida}}</h2>-->
+  		
+  	
+  	</div><!--end cabecera -->
+  	<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">      
+     
+      
+      	  <ion-slides #CardSlider>
+			  <ion-slide *ngFor="let hoyo of hoyos_fake; index as k; first as isFirstHoyo" >
+			    
+			    	<ion-grid>
+			    		<ion-row>
+			    			<ion-col col-2>
+						            <ion-icon *ngIf="!isFirstHoyo" (click)="goToSlide(k-1)" name="arrow-back"></ion-icon>
+			    			</ion-col >
+			    			<ion-col col-8 (click)="openMenuContextual()">{{ 'HOYO' | translate }} {{k + 1}} (Par {{match.Pars[idCampo][k]}})</ion-col>
+							<ion-col col-2>
+								<ion-icon *ngIf="!(k==17)" (click)="goToSlide(k+1)" name="arrow-forward"></ion-icon>
+							</ion-col>
+				    		<!--<ion-col col-2 *ngFor="let hoyo of hoyos_fake; index as k2; first as isFirstHoyo2" text-center class="tab_jugador"  (click)="goToSlide(k2)">
+				    			<div [ngClass]="{'active': k==k2}">
+					    			
+									<p>H {{k2 + 1}}</p>
+													    	
+									
+				    			</div>
+				    		</ion-col>-->
+			    		</ion-row>
+			    	</ion-grid>
+			    	<div padding>
+				    	
+				    	
+				    	<ion-list>
+    
+					    <ion-item *ngFor="let p of equipo.Registers; index as j; first as isFirstFlight2">
+					    <ion-input type="hidden" value="{{p.Licence.Id}}" clearInput formControlName="LicenceId_{{j}}"></ion-input>
+					     
+					     <ion-thumbnail item-start>
+					        <img *ngIf="p.Licence.Photo!=''" src="data:image/png;base64,{{p.Licence.Photo}}">
+					        <ion-icon *ngIf="!p.Licence.Photo" name="contact"></ion-icon>
+					        
+					      </ion-thumbnail>
+					      
+	
+					      
+					      <ion-label>
+					      <h2><img src="assets/imgs/flags/{{p.Licence.Country}}.png" width="16px"> {{p.Licence.LastName}}, {{p.Licence.FirstName}}</h2>
+					      <!--<p class="note">{{p.info_jugador.Country}}</p>-->
+					      </ion-label>
+					      <div item-end>
+						      <div *ngIf="!debug">
+						      <ion-input *ngIf=" p.Pars && p.Pars[equipo.Round] && p.Pars[equipo.Round][k] !== undefined" (change)="checkHoyoCompleto(k+1)" placeholder="-" value="{{p.Pars[equipo.Round][k]}}" type="number" [readonly]="isMatchFinished(j)" clearInput formControlName="hole_{{j}}_{{k+1}}" ></ion-input>
+						      <ion-input *ngIf="(!p.Pars || !p.Pars[equipo.Round] || !p.Pars[equipo.Round][k]=== undefined)" (change)="checkHoyoCompleto(k+1)" placeholder="-" type="number" [readonly]="isMatchFinished(j)" clearInput formControlName="hole_{{j}}_{{k+1}}"></ion-input>
+						      </div>
+						      <ion-input *ngIf="debug" placeholder="-" value="3" type="number" [readonly]="!matchOpen" (change)="checkHoyoCompleto(k+1)" clearInput formControlName="hole_{{j}}_{{k+1}}" ></ion-input>
+						  	  <!--<ion-input *ngIf="p.Pars[0][k] !== undefined" placeholder="-" value="{{p.Pars[0][k]}}" type="number" clearInput formControlName="hole_{{j}}_{{k+1}}" ></ion-input>
+							  <ion-input *ngIf="p.Pars[0][k] === undefined" placeholder="-" type="number" clearInput formControlName="hole_{{j}}_{{k+1}}"></ion-input>-->
+					      </div>
+					      <!--<div *ngIf="p.results.Pars != null" >	
+							  <ion-input *ngIf="p.results.Pars[k] !== undefined" placeholder="-" value="{{p.results.Pars[k]}}" type="number" clearInput formControlName="hole_{{j}}_{{k+1}}" item-end></ion-input>
+							  <ion-input *ngIf="p.results.Pars[k] === undefined" placeholder="-" type="number" clearInput formControlName="hole_{{j}}_{{k+1}}" item-end></ion-input>
+							</div>	
+							<div *ngIf="p.results.Pars == null">
+								<ion-input placeholder="-" type="number" clearInput formControlName="hole_{{j}}_{{k+1}}" item-end></ion-input>
+							</div>-->
+					      
+					    </ion-item>
+					
+					    
+					  </ion-list>
+				    	
+				    	
+					    	
+					   <!-- 	<div class="contenedor-resultados">
+					    	
+					    	<div *ngFor="let jugador of flights; index as j; first as isFirstFlight2">
+						    	<ion-input type="hidden" value="{{jugador.info_jugador.Id}}" clearInput formControlName="LicenceId_{{j}}"></ion-input>
+					    	<ion-grid class="vertical-align-content">
+								<ion-row>
+								<ion-col col-2>
+						      <ion-avatar item-start>
+						        <img *ngIf="jugador.info_jugador.Photo!=''" src="{{jugador.info_jugador.Photo}}" width="30px">
+								<img *ngIf="jugador.info_jugador.Photo==''" src="assets/imgs/avatar.png" width="30px">
+						      </ion-avatar>
+								</ion-col>
+								<ion-col col-8>
+						      {{jugador.info_jugador.LastName}}, {{jugador.info_jugador.FirstName}}
+								</ion-col>
+								<ion-col col-2>
+								
+								
+							<div *ngIf="resultados[j] != null">	
+							  <ion-input *ngIf="resultados[j][ronda] !== undefined" placeholder="-" value="{{resultados[j][ronda][k]}}" type="number" clearInput formControlName="hole_{{j}}_{{k+1}}"></ion-input>
+							  <ion-input *ngIf="resultados[j][ronda] === undefined" placeholder="-" type="number" clearInput formControlName="hole_{{j}}_{{k+1}}"></ion-input>
+							</div>	
+							<div *ngIf="resultados[j] == null">
+								<ion-input placeholder="-" type="number" clearInput formControlName="hole_{{j}}_{{k+1}}"></ion-input>
+							</div>
+							
+								
+								</ion-col>
+						      
+								</ion-row>
+					    	</ion-grid>
+					    	</div>
+					    	</div>--><!-- contenedor -->
+						    
+			    	</div>
+			    	
+			    	<!--<div class="timeline">
+				    	
+					    <ul >
+					      <li *ngFor="let jugador of flights; index as j; first as isFirstFlight2">
+					        <div class="bullet green"><ion-avatar item-start>
+										<img *ngIf="jugador.foto!=''" src="{{jugador.foto}}" width="30px">
+										<img *ngIf="jugador.foto==''" src="assets/imgs/avatar.png" width="30px">
+									</ion-avatar></div>
+					        <div class="time" text-center>{{jugador.nombre}}</div>
+					        <div class="desc" text-center>
+					          	<ion-input placeholder="#" type="hidden" value="{{jugador.LicenceId}}" clearInput formControlName="LicenceId_{{j}}"></ion-input>
+							  	<ion-input placeholder="#" type="number" clearInput class="campo_hoyo" formControlName="hole_{{j}}_{{k+1}}"></ion-input>
+							  	
+							  
+					        </div>
+					        
+					      </li>
+					      
+					     
+					      
+					    </ul>
+					  </div>--> <!-- Timeline -->
+			    
+			    
+			    
+			    
+			  </ion-slide>
+		  </ion-slides>
+</form>
+
+  	</div>
+  	
+  	<div padding *ngIf="!flight_encontrado">
+  		<h1>We haven't found the Flight...</h1>
+  		<div id="lottie"></div>
+  	</div>
+
+
+<ion-fab right top>
+    <button (click)="openBrowser()" ion-fab color="primary"><ion-icon name="trophy"></ion-icon></button>
+  </ion-fab>
+
+
+</ion-content>
+
+
+<ion-footer no-border *ngIf="flight_encontrado && matchOpen">
+                        
+                        <ion-grid>
+						  <ion-row>
+	
+						    <ion-col col-12>
+						    <button block ion-button round (click)="onSubmit()">{{ 'SAVERESULTS' | translate }}</button>
+						    </ion-col>
+						  </ion-row>
+						</ion-grid>
+                        
+                  
+                        
+</ion-footer>
+

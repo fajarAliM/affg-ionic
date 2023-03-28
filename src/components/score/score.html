@@ -1,0 +1,112 @@
+<ion-card (click)='openMatch(partido_id);'>
+    
+
+        <ion-row>
+        	<ion-col center text-center>
+        		{{campo}}
+        	</ion-col>	
+    	</ion-row>    
+
+
+        <ion-row>
+
+
+     
+            
+            	<ion-col col-sm-4 col-md-4 col-lg-4 col-xl-4 center text-center >
+
+                    <div *ngFor="let e of equipos" >
+                        <div *ngIf="e.pos==1">
+                    		<img class="escudo" data-src="{{global.url_assets}}{{e.imagen_equipo}}"><br />
+                            <ion-icon name="baseball" [ngClass]="e.color" style="border-radius:20px;"></ion-icon>
+                    		{{e.nombre_equipo}}
+                        </div>
+                    </div>    
+
+            	</ion-col>
+
+                <div *ngIf="grupo!='Futuro' then content else other_content">here is ignored</div>    
+                <ng-template #content>
+
+            	<ion-col col-sm-4 col-md-4 col-lg-4 col-xl-4 center text-center>
+            		<br /><br />
+                    <span *ngFor="let e of equipos" class="marcador">
+                        <span *ngIf="e.pos==1">
+                        {{e.golpes}}  -
+                        </span>
+                    </span>
+                    
+                    <span *ngFor="let e of equipos" class="marcador">
+                        <span *ngIf="e.pos==2">
+                        {{e.golpes}} 
+                        </span>
+                    </span>    
+            
+            	</ion-col>
+
+                </ng-template>
+                <ng-template #other_content>
+
+                    <ion-col col-sm-4 col-md-4 col-lg-4 col-xl-4 center text-center><br /><br /><br /><br /><span class="fecha">{{fecha_programado}}</span></ion-col>
+                </ng-template>
+
+            	<ion-col col-sm-4 col-md-4 col-lg-4 col-xl-4 center text-center >
+                    
+                    <div *ngFor="let e of equipos" >
+                        <div *ngIf="e.pos==2">
+                            <img class="escudo" data-src="{{global.url_assets}}{{e.imagen_equipo}}"><br />
+                            <ion-icon name="baseball" [ngClass]="e.color" style="border-radius:20px;"></ion-icon>
+                            {{e.nombre_equipo}}
+                        </div>
+                    </div>    
+                    
+            	</ion-col>	
+            
+
+
+    	</ion-row>
+    	<br /><br />
+    	<ion-row>
+        	<ion-col left text-left>
+        		{{jugando}}
+        	</ion-col>
+        	<ion-col right text-right>
+        		{{hoyoactual}}
+        	</ion-col>
+    	</ion-row>    
+        <hr />
+
+
+        <div *ngIf="grupo!='Futuro' then base1 else base2">here is ignored</div>    
+        <ng-template #base1>
+            <ion-row>
+                <ion-col left text-left>
+                    Follow
+                </ion-col>
+                <ion-col right text-right>
+                    >
+                </ion-col>
+            </ion-row>
+        </ng-template>
+        <ng-template #base2>
+            <ion-row>
+                <ion-col left text-left>
+                    Set Alert
+                </ion-col>
+                <ion-col right text-right> 
+                    >
+                </ion-col>
+            </ion-row>
+        </ng-template>
+
+        <ion-row>
+            &nbsp;&nbsp;
+            <span *ngFor="let l of listadohoyos"> 
+
+                <ion-icon name="baseball" [ngClass]="l.color" style="border-radius:20px;"></ion-icon>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+            </span>    
+        </ion-row>
+
+
+</ion-card>

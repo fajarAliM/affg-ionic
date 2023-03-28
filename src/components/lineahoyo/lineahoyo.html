@@ -1,0 +1,12 @@
+<ion-row>
+	<ion-col center text-center col-sm-4 col-md-4 col-lg-4 col-xl-4>
+		<br /><br />{{num_hoyo}}-<button style="background-color:white"><ion-icon name="baseball" [ngClass]="color" style="border-radius:20px;"></ion-icon></button>
+	</ion-col> 
+
+	<ion-col center text-center *ngFor="let j of jugadores" col-sm-4 col-md-4 col-lg-4 col-xl-4>
+		<img (click)='verScores(1);' class="escudito" data-src="{{global.url_assets}}{{j.foto}}"><br />
+        <span style="position:relative;left:25%">({{j.golpes}}) - {{j.name}} 
+		</span>
+	</ion-col>
+		 
+</ion-row>

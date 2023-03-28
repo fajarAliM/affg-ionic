@@ -1,0 +1,18 @@
+{
+  "results": [
+    {
+      "id": "1",
+      "score": "34 -32",
+      "countryA": "UK",
+      "countryB": "GERMANY",
+      "locale": "AL MAADEN"
+    },
+    {
+      "id": "2",
+      "score": "38 -32",
+      "countryA": "UK",
+      "countryB": "GERMANY",
+      "locale": "AL MAADEN"
+    }
+  ]
+}

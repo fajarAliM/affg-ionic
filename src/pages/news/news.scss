@@ -1,0 +1,116 @@
+page-news {
+	ion-title {
+	  position: absolute;
+	  top: 0;
+	  left: 0;
+	  padding: 0 90px 1px;
+	  width: 100%;
+	  height: 100%;
+	  text-align: center;
+	}
+	.backgroundColor{
+		background-color: #f8f8f8;
+	}
+	ion-item-divider{
+		height: 60px;
+	}
+	.newsImg{
+		border-radius: 25px;
+		-webkit-filter: brightness(80%); /* Safari 6.0 - 9.0 */
+    	filter: brightness(80%);
+	}
+	
+	ion-slides {
+	    display: block;
+	    width: 100%;
+	    height: 20%;
+	}
+	.resultBox{
+		display: block;
+	    width: 90%;
+	    height: 40%;
+	    margin: 16px auto;
+	    background-image: url('../../assets/imgs/scoreBack.jpg')!important;
+	    background-size: cover;
+	    background-position: center center;
+	    background-repeat: no-repeat;
+	    border-radius: 10px;
+	}
+	.circle {
+	    background-color:#fff;
+	    border:3px solid #777;    
+	    height:70px;
+	    border-radius:50%;
+	    -moz-border-radius:50%;
+	    -webkit-border-radius:50%;
+	    width:70px;
+	}
+	.fright{
+		float: right;
+	}
+	.fleft{
+		float: left;
+	}
+	.mCenter{
+		margin: 0 auto;
+	}
+	.container {
+	    position: relative;
+	    text-align: center;
+	    color: white;
+	}
+
+	/* Bottom left text */
+	.bottom-left {
+	    position: absolute;
+	    bottom: 30px;
+	    left: 36px;
+	}
+
+	/* Top left text */
+	.top-left {
+	    position: absolute;
+	    top: 8px;
+	    left: 16px;
+	}
+
+	/* Top right text */
+	.top-right {
+	    position: absolute;
+	    top: 8px;
+	    right: 16px;
+	}
+
+	/* Bottom right text */
+	.bottom-right {
+	    position: absolute;
+	    bottom: 8px;
+	    right: 16px;
+	}
+
+	/* Centered text */
+	.centered {
+	    position: absolute;
+	    top: 50%;
+	    left: 50%;
+	    transform: translate(-50%, -50%);
+	}
+	.trans{
+		background:rgba(0,0,0,0.0) !important;
+	}
+	.blackFilter{
+		background-color: rgba(0, 0, 0, 0.5);
+	    position: absolute;
+	    width: 100%;
+	    height: 100%;
+	    border-radius: 25px;
+	}
+	.imgContainer{
+		position: relative;
+	    text-align: center;
+	    color: white;
+	}
+	.item-md {
+	    background-color: none !important;
+	}
+}

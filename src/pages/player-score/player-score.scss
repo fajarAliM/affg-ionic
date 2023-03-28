@@ -1,0 +1,186 @@
+page-player-score {
+    ion-title {
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 0 90px 1px;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+      }
+      .backgroundColor{
+          background-color: #f8f8f8;
+      }
+      .resultBox{
+        display: block;
+        width: 90%;
+        height: 35%;
+        margin: 16px auto;
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        border-radius: 10px;
+    }
+    .circle {
+        background-color:#fff;
+        border:3px solid #777;    
+        height:70px;
+        border-radius:50%;
+        -moz-border-radius:50%;
+        -webkit-border-radius:50%;
+        width:70px;
+    }
+    .fright{
+        float: right;
+    }
+    .fleft{
+        float: left;
+    }
+    .mCenter{
+        margin: 0 auto;
+    }
+    .follow{
+        padding-top:5px;
+        padding-bottom:5px;
+        border-bottom: 1px solid #fff;
+        border-top: 1px solid #fff;
+    }
+    .tile{
+        background-color: #0061cb;
+        padding: 5px 12px 5px 12px;
+        color: #fff;
+        border-radius: 25px;
+    }
+    .mDate{
+        color: #000;
+        font-size: 1rem;
+    }
+    .item-md.mode{
+        color: #000;
+        background-color: #f8f8f8;
+
+    }
+    .item-md.item-block .item-inner {
+        padding-right: 8px;
+        border-bottom: 1px solid #0061cb;
+    }
+    .dot{
+        background-color:green;   
+        height:15px;
+        border-radius:50%;
+        -moz-border-radius:50%;
+        -webkit-border-radius:50%;
+        width:15px;
+        float: left;
+    }
+    .dot2{
+        background-color:#d0021b;   
+        height:15px;
+        border-radius:50%;
+        -moz-border-radius:50%;
+        -webkit-border-radius:50%;
+        width:15px;
+        float: left;
+    }
+    .dot3{
+        background-color:#4a90e2;   
+        height:15px;
+        border-radius:50%;
+        -moz-border-radius:50%;
+        -webkit-border-radius:50%;
+        width:15px;
+        float: left;
+    }
+    .content-md hr {
+        background-color: #0061cb;
+    }
+    .subTabs{
+        font-size: 1.0rem;
+        font-weight: bold;
+    }
+    .padLeft{
+        padding-left: 35px
+    }
+    .player {
+        background-color:#fff;
+        border:1px solid #777;    
+        height:40px;
+        border-radius:50%;
+        -moz-border-radius:50%;
+        -webkit-border-radius:50%;
+        width:40px;
+    }
+    
+    #container{
+        position: relative;
+        display: block;
+        height: 55px;
+        width: 50px;
+    }
+    #notifications-badge {
+        background-color: #d0021b;
+        position: absolute;
+        border-radius: 100%;
+        right: 0;
+    }
+    #notifications-badgeB {
+        background-color: #4a90e2;
+        position: absolute;
+        border-radius: 100%;
+        right: 0;
+    }
+    #icon {
+        position: relative;
+    }
+    #wrapper {
+        position: absolute;
+        top: 5px;
+        right: 0;
+    }
+    .circleB {
+        background-color:#fff;
+        border:3px solid #777;    
+        height:50px;
+        width:50px;
+        border-radius:50%;
+        -moz-border-radius:50%;
+        -webkit-border-radius:50%;
+    }
+    .note {
+      position: relative;
+      width: 60px;
+      height: 60px;
+      margin: auto;
+      overflow: hidden;
+      border:1px solid #777;
+
+    }
+
+    .note:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      border-width: 0 16px 16px 0;
+      border-style: solid;
+      border-color: #4a90e2 #4a90e2 #fff #fff;
+      background: #fff;
+      display: block; 
+      width: 0;
+    }
+
+    .note.rounded {
+      -moz-border-radius: 5px 0 5px 5px;
+      border-radius: 5px 0 5px 5px;
+    }
+
+    .note.rounded:before {
+      border-width: 8px;
+      border-color: #fff #fff transparent transparent;
+      -moz-border-radius: 0 0 0 5px;
+      border-radius: 0 0 0 5px;
+    }
+    .litMargin {
+        margin-bottom: 5px;
+    }
+}

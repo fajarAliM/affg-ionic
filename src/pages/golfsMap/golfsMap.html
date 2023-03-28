@@ -1,0 +1,108 @@
+<ion-header no-border color="backColor">
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <img src="assets/imgs/menu.svg">
+    </button>
+    <ion-title>Golfs</ion-title>
+     <ion-buttons end>
+      <button ion-button (click)="openList()" icon-only color="white">
+        <ion-icon  name="list"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content  class="backgroundColor">
+	
+	
+	
+		
+		
+			
+			<div id="map" style="width: 100%; height: 95%; position: absolute;"></div>
+			
+		
+	
+
+</ion-content>
+
+
+<ion-footer>
+	<ion-toolbar>
+    
+    <ion-grid>
+    	<ion-row>
+			<ion-col>
+			      <a *ngIf="home" class="menu-inf-option has-title has-icon disable-hover" aria-selected="true" (click)="openMenu(1)">
+				    	<span class="icono"><img src="assets/imgs/1_active.svg" height="30px"></span>
+						<span class="menu-inf-text">{{ 'MENU1' | translate }}</span>
+					</a>
+					
+					<a *ngIf="!home" class="menu-inf-option has-title has-icon disable-hover" (click)="openMenu(1)">
+				    	<span class="icono"><img src="assets/imgs/1.svg" height="30px"></span>
+						<span class="menu-inf-text">{{ 'MENU1' | translate }}</span>
+					</a>
+					
+	  		</ion-col>
+	  		<ion-col>
+			      <a *ngIf="lineups" class="menu-inf-option has-title has-icon disable-hover" aria-selected="true" (click)="openMenu(2)">
+				    	<span class="icono"><img src="assets/imgs/2_active.svg" height="30px"></span>
+						<span class="menu-inf-text">{{ 'MENU2' | translate }}</span>
+					</a>
+					<a *ngIf="!lineups" class="menu-inf-option has-title has-icon disable-hover" (click)="openMenu(2)">
+				    	<span class="icono"><img src="assets/imgs/2.svg" height="30px"></span>
+						<span class="menu-inf-text">{{ 'MENU2' | translate }}</span>
+					</a>
+	  		</ion-col>  
+	  		<ion-col>
+			      <a *ngIf="courses" class="menu-inf-option has-title has-icon disable-hover" aria-selected="true" (click)="openMenu(3)">
+				    	<span class="icono"><img src="assets/imgs/3_active.svg" height="30px"></span>
+						<span class="menu-inf-text">{{ 'MENU3' | translate }}</span>
+					</a>
+					<a *ngIf="!courses" class="menu-inf-option has-title has-icon disable-hover" (click)="openMenu(3)">
+				    	<span class="icono"><img src="assets/imgs/3.svg" height="30px"></span>
+						<span class="menu-inf-text">{{ 'MENU3' | translate }}</span>
+					</a>
+	  		</ion-col>
+	  		<ion-col>
+			      <a *ngIf="rankings" class="menu-inf-option has-title has-icon disable-hover" aria-selected="true" (click)="openMenu(4)">
+				    	<span class="icono"><img src="assets/imgs/4_active.svg" height="30px"></span>
+						<span class="menu-inf-text">{{ 'MENU4' | translate }}</span>
+					</a>
+					<a *ngIf="!rankings" class="menu-inf-option has-title has-icon disable-hover" (click)="openMenu(4)">
+				    	<span class="icono"><img src="assets/imgs/4.svg" height="30px"></span>
+						<span class="menu-inf-text">{{ 'MENU4' | translate }}</span>
+					</a>
+	  		</ion-col>
+	  		<ion-col>
+			      <a class="menu-inf-option has-title has-icon disable-hover" menuToggle>
+				    	<span class="icono"><ion-icon name="more"></ion-icon></span>
+						<span class="menu-inf-text">{{ 'MENU5' | translate }}</span>
+					</a>
+	  		</ion-col>
+	  </ion-row>
+    </ion-grid>
+    
+    	
+    
+
+  </ion-toolbar>
+</ion-footer>
+
+<!--<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>
+      Ionic Map
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="updateLocation()">
+        <ion-icon name="locate"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content no-padding>
+  <div id="map" style="width:100%; height:100%;"></div>
+</ion-content>-->

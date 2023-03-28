@@ -1,0 +1,102 @@
+page-ranking {
+	.scroll-content{ margin-bottom: 0px;}
+	ion-title {
+	  position: absolute;
+	  top: 0;
+	  left: 0;
+	  padding: 0 90px 1px;
+	  width: 100%;
+	  height: 100%;
+	  text-align: center;
+	}
+
+	.columColor{
+		background-color: #fff !important;
+	}
+	.headColor{
+		color: #777;
+	}
+	.item-md {
+	    background-color: rgba(0, 0, 0, 0);
+	}
+	.shadow{
+		box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+	}
+	.circle {
+        background-color:#fff;
+        border:3px solid #777;    
+        height:70px;
+        border-radius:50%;
+        -moz-border-radius:50%;
+        -webkit-border-radius:50%;
+        width:70px;
+    }
+
+
+	.ranking_card{
+		
+		-webkit-box-shadow: 0 4px 16px rgba(0,0,0,.12);
+		box-shadow: 0 4px 16px rgba(0,0,0,.12); 
+		border-radius: 8px;
+		
+		.col{padding:0px;}
+		
+		.row{ border-bottom:1px solid #f4f4f4;}
+		
+		ion-row:first-child{border-radius: 8px 8px 0 0;}
+		ion-row:last-child{border-radius: 0 0 8px 8px;}
+		
+		
+		
+	}
+	
+	.ranking_up{
+		color: #91DC5A;
+	}
+	.ranking_down{
+		color: #D80027;
+	}
+	.ranking_same{
+		color: #333;
+	}
+	
+	ion-thumbnail ion-img, ion-thumbnail img{
+
+		margin-right: 5px;
+	}
+	
+	ion-list{-webkit-box-shadow: 0 4px 16px rgba(0,0,0,.12);
+		box-shadow: 0 4px 16px rgba(0,0,0,.12);
+		
+		
+		ion-icon{ color: #4D8CF4;}
+		
+		}
+		
+	.item{ padding-left: 0px;
+		
+		color:white;
+		background-color:rgba(255,255,255,.03);
+		
+		 .item-inner{ padding:0 !important;}
+		
+		.label{ margin: 0px;}
+		ion-thumbnail{ min-height: 35px !important; min-width: 35px !important;    max-height: 35px !important;
+    max-width: 35px !important; padding: 0px; margin: 0px !important;
+    display: inline-block !important;
+    
+    img{ height: 35px; width: 35px;  border-radius: 50%;   border: 2px solid white;}
+    ion-icon{ color: white; font-size: 42px;}
+    
+    }
+	}
+	
+	.ranking-bueno .item-block:first-child{background: linear-gradient(90deg, rgba(255,255,255,.03) 98%, color($colors, oro) 2%); color:white; border-radius: 6px 6px 0 0;}
+	.ranking-bueno .item-block:nth-child(2){ background: linear-gradient(90deg, rgba(255,255,255,.03) 98%, color($colors, plata) 2%); color: white;}
+	.ranking-bueno .item-block:nth-child(3){ background: linear-gradient(90deg, rgba(255,255,255,.03) 98%, color($colors, bronce) 2%); color:white;}
+	ion-list .item-block:first-child, .item-block:last-child{ border-top:none !important; border-bottom: none !important; border-radius: 0 0 6px 6px;}
+	
+	
+	
+
+}

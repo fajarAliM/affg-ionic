@@ -1,0 +1,54 @@
+// Styles for all of the user pages:
+// Login, Signup, Support
+
+register-page {
+    
+    font-family: 'Roboto', sans-serif; 
+
+    .list {
+        margin-bottom: 0;
+    }
+    
+
+    .item-divider{ background-color: transparent;}
+     .item .ion-label-stacked, .login-page .item .text-input{ color: color($colors, dark);}
+	
+	ion-label[stacked], ion-label[floating]{ color: #d4d4d4;}
+	
+     .item{ background: transparent; color: white; padding-left: 0 !important;}
+    
+     .item-inner{}
+    
+
+    /*.login-page .button-default{ background-color: white; color: color($colors, primary);}*/
+    
+    .item .ion-label-stacked, .item .text-input{ color: color($colors, dark);}
+    
+
+ .list{ margin-top: 10%;}
+    
+    .logo{ margin-bottom: 20%;
+	    
+	    img{ width: 70%;}
+	    h4{ margin-top: 20%;}
+	    
+    }
+    
+    .texto-legal{ color: color($colors, light); line-height: 20px;}
+    
+   
+   .button-block{ min-height: 41px;}
+    
+    .text-input{
+    padding: 2px !important;
+    width: 100% !important;
+    border: solid black 1px !important;
+    height: 45px !important;
+    border-radius: 25px 25px 25px 25px !important;
+    text-align: center !important;
+    color: black !important;
+    background-color: white;
+}
+    
+    
+}

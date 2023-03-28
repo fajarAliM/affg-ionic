@@ -1,0 +1,95 @@
+page-myflights {
+    ion-title {
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: 0 90px 1px;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+    }
+
+
+	
+	
+	ion-item-sliding{
+		
+		background-color: transparent !important;
+					margin-bottom: 8px;
+background-color: rgba(255,255,255,.03);
+			border: none !important;
+			border-radius: 6px;
+			padding: 0px;
+		
+		ion-item-options{ border-bottom: none !important;}
+		
+		
+	   ion-item, .item-ios, .item-md{
+	
+			background-color: rgba(255,255,255,.03);
+			border: none !important;
+			border-radius: 6px;
+			padding: 0px;
+			
+			.item-inner{ border-bottom: none !important;}
+			
+			ion-label{     white-space: unset; margin-bottom: 0px !important;
+				h2{ color: white; font-size: 1.6rem;}
+				p.note{ font-size: 1.2rem;     margin: 6px 0px 2px; color: rgba(255,255,255,.5) !important; 
+					
+					span.hoyo{ color: white; font-size: 1.6rem;}
+					
+				}
+			}
+			
+			ion-thumbnail[item-start]{
+				margin: 0px;
+				margin-right: 8px;
+			
+				
+				img{         min-height: 118px;
+    min-width: 85px;
+		    border-radius: 6px 0 0 6px;
+		    background-color: white;}
+			}
+			
+			ion-avatar{ display: inline-block; margin-right: 3px;
+				ion-icon{ color: white; font-size: 41px;}
+				
+				img {
+    border-radius: 50%;
+    overflow: hidden;
+    width: 33px;
+    height: 33px;
+    margin-top: 6px;
+        border: 2px white solid;
+}
+				
+			}
+			
+	
+		}
+
+	}
+	
+	ion-item-sliding.active-slide .item, ion-item-sliding.active-slide .item.activated{ border-radius: 6px 0 0 6px;}
+
+  .card{ background-color: rgba(255,255,255,.03); border-radius: 6px; width: 100% !important; margin: 0 !important; margin-bottom: 20px !important;     border-bottom: 1px solid;}
+     
+     .card-header{
+		text-align: left;
+				    padding: 15px 15px 16px;
+				        padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20px;
+    padding-bottom: 16px;
+
+		.card-subtitle{ font-size: 1.2rem;     margin: 6px 0px 2px; color: rgba(255,255,255,.5) !important;}
+		.card-title{ color: white; font-size: 1.6rem;
+   
+    text-overflow: ellipsis;}
+		
+	}
+	
+    
+}

@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{ noticia.Title }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+
+<div class="noticia">
+		<div *ngIf="noticia.Id">
+			<h2>{{ noticia.Title }}</h2>
+			 <!--<img  src="https://www.footgolf-france.fr/media/cache/home_slide/{{noticia.ArticleObjects[0].Slug}}"/>-->
+			 <img *ngIf="noticia.Vignette" src="data:image/png;base64,{{noticia.Vignette.Data}}">
+			 
+			<div [innerHTML]="noticia.Document"></div>
+		</div>
+	
+	</div>
+
+</ion-content>

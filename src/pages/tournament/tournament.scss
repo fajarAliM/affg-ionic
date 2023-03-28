@@ -1,0 +1,116 @@
+page-tournament {
+	ion-title {
+	  position: absolute;
+	  top: 0;
+	  left: 0;
+	  padding: 0 90px 1px;
+	  width: 100%;
+	  height: 100%;
+	  text-align: center;
+	}
+
+	.teamsTitle{
+		color: #0061cb;
+	}
+	
+	.scroll-content{
+		margin-bottom: 0px;
+	}
+	
+	.circle {
+        background-color:#fff;
+        border:3px solid #979797;    
+        height:70px;
+        border-radius:50%;
+        -moz-border-radius:50%;
+        -webkit-border-radius:50%;
+        width:70px;
+    }
+    .mCenter{
+        margin: 0 auto;
+    }
+    
+    ion-avatar img{
+	    border-radius: 50%;
+    overflow: hidden;
+    width: 60px;
+    height: 60px;
+    display: unset;
+    border: 2px solid #999;
+    }
+    
+    .avatarequipo img{ border: none; border-radius: 0;}
+    
+    ion-list{
+	    margin-top: 10px !important;
+	    -webkit-box-shadow: 0 4px 16px rgba(0,0,0,.12);
+		box-shadow: 0 4px 16px rgba(0,0,0,.12); 
+		border-radius: 8px;
+    }
+    
+    .item{ padding-left: 0px;
+		border-bottom: 1px solid #3d3c43 !important;
+		
+		 .item-inner{ padding:0 !important;}
+		
+		.label{ margin: 0px; color: white;}
+		
+	}
+	
+	.grid{ padding: 0px;}
+    
+    .item-block:first-child{ border-top: none !important; background-color: transparent; color: white; font-weight: bold; font-size: 1.2rem !important;}
+    
+    
+    .teamCard{
+	    p.note{ font-size: 1.2rem;     margin: 6px 0px 2px; color: rgba(255,255,255,.5) !important; }
+	    p{ line-height: .5em; }
+	    margin-bottom: 1em;
+	    ion-thumbnail{ margin-top: 1.5em;}
+    }
+    
+    
+    ion-item, .item-ios, .item-md{
+	
+	background-color: rgba(255,255,255,.03);
+	border: none !important;
+	border-radius: 0px;
+	padding: 0px;
+	margin-bottom: 0px;
+	color: white;
+	
+	.item-inner{ border-bottom: none !important;}
+	
+	ion-label{     white-space: unset;
+		h2{ color: white; font-size: 1.6rem;}
+		p.note{ font-size: 1.2rem;     margin: 6px 0px 2px; color: rgba(255,255,255,.5) !important; }
+	}
+	
+	ion-thumbnail[item-start]{
+		margin: 0px;
+		margin-right: 8px;
+		margin-left: 8px;
+		margin-top: 1em;
+		
+		img{ min-height: 60px; min-width: 60px; border-radius: 50%; background-color: white;     padding: 2px;}
+		ion-icon{    font-size: 70px;
+    color: white;}
+	}
+	
+	
+}
+ 
+ ion-list-header:first-child{ border-radius: 6px 6px 0 0;}
+      ion-list-header:last-child{ border-radius: 0 0 6px 6px;}
+ 
+ ion-avatar img, ion-thumbnail img{ display: inline;} 
+    
+    
+    .webPage{
+		width: 100%;
+		border: none;
+		    height: 100vh;
+		    background-color: color($colors, dark);
+		}
+    
+}

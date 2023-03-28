@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Match</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+<ion-item *ngFor="let p of partidos">
+    <ion-card>
+        <ion-row>
+        	<ion-col center text-center>
+        		{{p.nombre_campo}}
+        	</ion-col>	
+    	</ion-row>    
+
+
+        <ion-row *ngFor="let e of p.equipos">
+        	<ion-col center text-center>
+
+            <img class="escudo" data-src="{{global.url_assets}}{{e.imagen_jugador}}"><br />
+            <img class="escudo" data-src="{{global.url_assets}}{{e.imagen_equipo}}"><br />                        
+            {{e.nombre_equipo}}
+
+        	</ion-col>
+        	
+        	<ion-col center text-center>
+        		
+        		{{e.golpes}}<br />
+        		{{p.jugando}}<br />
+        		{{p.nombre_campo}}<br />
+        	</ion-col>	
+    	</ion-row>
+        
+        <hr />
+        <ion-row>
+            <ion-col left text-left>
+                {{p.jugando}}
+            </ion-col>
+            <ion-col right text-right>
+                {{p.hoyo_actual}}
+            </ion-col>
+        </ion-row>
+
+
+    	<lineahoyo [num_hoyo]="h.num" [color]="h.ganador" [jugadores]="h.users" *ngFor="let h of p.hoyos"></lineahoyo>
+    	
+      </ion-card>
+</ion-item>
+
+</ion-content>
+
+
+

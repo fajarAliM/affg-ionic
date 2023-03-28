@@ -1,0 +1,99 @@
+page-golfsMap {
+	
+	
+	
+	
+	ion-title {
+	  position: absolute;
+	  top: 0;
+	  left: 0;
+	  padding: 0 90px 1px;
+	  width: 100%;
+	  height: 100%;
+	  text-align: center;
+	}
+
+	.teamsTitle{
+		color: #0061cb;
+	}
+	.circle {
+        background-color:#0061cb;
+        border:1px solid #777;    
+        height:70px;
+        border-radius:50%;
+        -moz-border-radius:50%;
+        -webkit-border-radius:50%;
+        width:70px;
+    }
+    .mCenter{
+        margin: 0 auto;
+    }
+    
+    ion-avatar img{
+	    /*border-radius: 50%;
+    overflow: hidden;*/
+    width: 60px;
+    height: 60px;
+    display: unset;
+    /*border: 2px solid #999;*/
+    }
+    
+    
+    ion-item, .item-ios{
+	
+	background-color: rgba(255,255,255,.03);
+	border: none !important;
+	border-radius: 6px;
+	padding: 0px;
+	margin-bottom: 8px;
+	
+	.item-inner{ border-bottom: none !important;}
+	
+	ion-label{     white-space: unset;
+		h2{ color: white; font-size: 1.6rem;}
+		p.note{ font-size: 1.2rem;     margin: 6px 0px 2px; color: rgba(255,255,255,.5) !important; }
+	}
+	
+	ion-thumbnail[item-start]{
+		margin: 0px;
+		margin-right: 8px;
+		margin-left: 8px;
+		
+		img{ min-height: 60px; min-width: 60px; border-radius: 50%; background-color: white;     padding: 8px;}
+	}
+	
+	
+}
+
+
+ .card{ background-color: rgba(255,255,255,.03); border-radius: 6px; width: 100% !important; margin: 0 !important; margin-bottom: 20px !important;}
+     
+     .card-header{
+		text-align: left;
+				    padding: 15px 15px 16px;
+				        padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20px;
+    padding-bottom: 16px;
+
+		.card-subtitle{ font-size: 1.2rem;     margin: 6px 0px 2px; color: rgba(255,255,255,.5) !important;}
+		.card-title{ color: white; font-size: 1.6rem;
+   
+    text-overflow: ellipsis;}
+		
+	}
+
+
+.map-container {
+position: absolute;
+top: 0px;
+bottom: 0px;
+width: 100%;
+height: 100%;
+}
+
+    
+}
+
+
+

@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Scores</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+	 
+
+    <score [fecha_programado]="p.fecha_programado" [campo]="p.nombre_campo" [equipos]="p.equipos" [jugando]="p.jugando" [hoyoactual]="p.hoyo_actual" [listadohoyos]="p.listado_victorias_hoyos"  [grupo]="p.grupo" *ngFor="let p of partidos"></score>
+
+</ion-content> 
+   
+
+
+

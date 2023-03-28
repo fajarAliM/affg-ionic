@@ -1,0 +1,78 @@
+<ion-header no-border color="backColor">
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <svg width="23px" height="16px" viewBox="0 0 23 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+                <desc>Created with Sketch.</desc>
+                <defs></defs>
+                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                    <g id="Home" transform="translate(-10.000000, -31.000000)" fill="#000000">
+                        <path d="M10,40.1428571 L10,37.8571429 L26.3555556,37.8571429 L26.3555556,40.1428571 L10,40.1428571 Z M10,33.2857143 L10,31 L33,31 L33,33.2857143 L10,33.2857143 Z M10,47 L10,44.7142857 L33,44.7142857 L33,47 L10,47 Z" id="ion-navicon---Ionicons"></path>
+                    </g>
+                </g>
+            </svg>
+    </button>
+    <ion-title><img src="assets/imgs/foot.png" height="40px" alt=""></ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="backgroundColor">
+
+	  <h2>Ranking {{categoryName}}</h2>
+	  <!--<ion-select [(ngModel)]="modalidad">
+	    <ion-option value="f">Female</ion-option>
+	    <ion-option value="m">Male</ion-option>
+	  </ion-select>-->
+
+  <ion-grid text-center >
+    <ion-row class="headColor">
+      <ion-col col-1>#</ion-col>
+      <ion-col col-5 text-left>NAME</ion-col>
+      <ion-col col-1 *ngFor="let score of rondas">R</ion-col>
+
+      <ion-col col-2>TOTAL</ion-col>
+    </ion-row>
+    <div class="ranking_card">
+      <ion-row class="columColor"  padding-top padding-bottom align-items-left *ngFor="let rank of ranking" (click)="openUser(rank)">
+        <ion-col col-1>
+          {{ rank.posicion }}
+        </ion-col>
+        <ion-col col-5 text-left>
+            <span class="name_clas">{{ rank.nombre }}</span>
+        </ion-col>
+        <ion-col col-1 *ngFor="let sc of rank.scores">
+          {{ sc }}
+        </ion-col>
+                <ion-col col-2>{{ rank.total }}</ion-col>
+      </ion-row>
+    </div>
+  </ion-grid>
+  
+
+    <!--<ion-row style="font-weight:bold">
+      <ion-col col-sm-1 col-md-1 col-lg-1 col-xl-1></ion-col>
+    	<ion-col col-sm-7 col-md-7 col-lg-7 col-xl-7>Equipo</ion-col>
+      <ion-col col-sm-2 col-md-2 col-lg-2 col-xl-2>Golpes</ion-col>
+      <ion-col col-sm-2 col-md-2 col-lg-2 col-xl-2>Partidos Ganados</ion-col>
+    </ion-row>
+
+
+
+    <ion-row *ngFor="let l of listado" >
+    	<ion-col col-sm-8 col-md-8 col-lg-8 col-xl-8>
+      <img class="escudito" data-src="{{global.url_assets}}{{l.imagen_equipo}}" style="position:relative;left:20%"><br />{{l.nombre_equipo}}
+      </ion-col>
+      <ion-col col-sm-2 col-md-2 col-lg-2 col-xl-2>
+       <br /><br />{{l.golpes}}
+       </ion-col>
+       <ion-col col-sm-2 col-md-2 col-lg-2 col-xl-2>
+       <br /><br />{{l.ganados}}
+       </ion-col>
+    </ion-row>-->
+
+
+
+</ion-content>
+
+
+

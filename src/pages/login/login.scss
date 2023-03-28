@@ -1,0 +1,68 @@
+// Styles for all of the user pages:
+// Login, Signup, Support
+
+page-login {
+    
+    font-family: 'Roboto', sans-serif; 
+
+    
+	
+    ion-label{ color: #737373;}
+
+
+
+    .list {
+        margin-bottom: 0;
+
+        .item-block .item-inner{
+            border-bottom: none;
+        }
+
+    }
+
+
+    .login-page .item-divider{ background-color: transparent;}
+    .login-page .item .ion-label-stacked, .login-page .item .text-input{ color: color($colors, dark); background-color: white}
+
+    ion-label[stacked], ion-label[floating]{ color: color($colors, light);}
+
+    .login-page .item{ background: transparent; color: white; padding-left: 0 !important; margin-bottom: 10px;}
+
+    .login-page .item-inner{}
+
+
+    /*.login-page .button-default{ background-color: white; color: color($colors, primary);}*/
+
+
+
+
+    .login-page .list{ margin-top: 10%;}
+
+    .logo{ margin-bottom: 10%;
+
+           img{ width: 50%;}
+           h4{ margin-top: 10%;}
+
+    }
+	
+	 .item-inner{ padding-right: 0px !important;}
+	 .text-input{ margin: 0px !important; margin-bottom: 8px;}
+	
+
+    .content-ios .scroll-content{ border-top: none !important; }
+
+    .backbutton{ color:color($colors, dark);}
+    
+    .text-input{
+    padding: 2px !important;
+    width: 100% !important;
+    border: solid black 1px !important;
+    height: 45px !important;
+    border-radius: 25px 25px 25px 25px !important;
+    text-align: center !important;
+    color: black !important;
+}
+
+.button{ min-height: 45px;}
+    
+}

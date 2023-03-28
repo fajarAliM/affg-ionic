@@ -1,0 +1,117 @@
+<ion-header no-border color="backColor">
+  <ion-navbar hideBackButton>
+    <ion-title>{{ 'RANK' | translate }}</ion-title>
+    <ion-buttons left>
+        <button ion-button icon-only (click)="viewCtrl.dismiss()">
+            <ion-icon name="arrow-back"></ion-icon>
+        </button>
+    </ion-buttons>
+  </ion-navbar>
+  
+  <ion-searchbar debounce="700" padding (ionInput)="SearchPlayers($event)"></ion-searchbar>
+  
+</ion-header>
+
+<ion-content padding class="backgroundColor">
+
+<h1>{{infoTorneo.Name}}</h1>
+  
+  
+   <ion-segment [(ngModel)]="rankingSwitch">
+    <ion-segment-button value="info">
+      {{ 'RANK' | translate }}
+    </ion-segment-button>
+    <ion-segment-button value="favoritos">
+      {{ 'FAVORITOS' | translate }}
+    </ion-segment-button>
+
+  </ion-segment>
+  
+  
+  
+  
+  <div  [ngSwitch]="rankingSwitch">
+   <!-- FAVORITOS -->
+  <div *ngSwitchCase="'favoritos'">
+  <ion-list>
+  	<div *ngFor="let rank of ranking; index as j">
+	  <ion-item  *ngIf="isFavorite[j]" (click)="openCard(rank)">    
+	    <ion-grid>
+	    	<ion-row>
+			    <ion-col col-2>
+			      {{ rank.Rank }} 
+			      	<!--<span class="variacion ranking_up" *ngIf="rank.evolucion_ranking == 1"><ion-icon ios="ios-arrow-round-up" md="md-arrow-round-up"></ion-icon></span>
+			        <span class="variacion ranking_down" *ngIf="rank.evolucion_ranking == -1"><ion-icon ios="ios-arrow-round-down" md="md-arrow-round-down"></ion-icon></span>
+			        <span class="variacion ranking_same" *ngIf="rank.evolucion_ranking == 0">=</span>-->
+			        <img src="./assets/imgs/flags/{{ rank.Licence.Nationality }}.svg" width="16px">
+			    </ion-col>
+			    <ion-col col-7>
+			       <ion-thumbnail item-start>
+        <img *ngIf="rank.Licence.Photo" src="data:image/png;base64,{{rank.Licence.Photo}}">
+        <ion-icon *ngIf="!rank.Licence.Photo" name="contact"></ion-icon>
+        
+      </ion-thumbnail> {{ rank.Licence.LastName }},  {{ rank.Licence.FirstName }}
+		    <ion-icon name="star" (click)="unfavoritePlayer(rank.Licence.Id,j);$event.stopPropagation()" *ngIf="isFavorite[j]"></ion-icon>
+		    <ion-icon name="star-outline" (click)="favoritePlayer(rank.Licence.Id,j);$event.stopPropagation()" *ngIf="!isFavorite[j]"></ion-icon>
+			    </ion-col>
+			    <ion-col col-3 text-right >
+			      <span *ngIf="rank.Rank">{{ rank.TotalScore }}</span>
+			      <span *ngIf="!rank.Rank">0</span>
+			    </ion-col>
+			    
+			  </ion-row>
+	    </ion-grid>
+
+	  </ion-item>
+  	</div>
+	</ion-list>
+	
+  </div><!-- FAVORITOS -->
+	
+	
+	
+	
+	<ion-list class="ranking-bueno" *ngSwitchCase="'info'">
+	  <ion-item *ngFor="let rank of ranking; index as j" (click)="openCard(rank)">    
+	    <ion-grid>
+	    	<ion-row>
+			    <ion-col col-2>
+			      {{ rank.Rank }} 
+			      	<!--<span class="variacion ranking_up" *ngIf="rank.evolucion_ranking == 1"><ion-icon ios="ios-arrow-round-up" md="md-arrow-round-up"></ion-icon></span>
+			        <span class="variacion ranking_down" *ngIf="rank.evolucion_ranking == -1"><ion-icon ios="ios-arrow-round-down" md="md-arrow-round-down"></ion-icon></span>
+			        <span class="variacion ranking_same" *ngIf="rank.evolucion_ranking == 0">=</span>-->
+			        <img src="./assets/imgs/flags/{{ rank.Licence.Nationality }}.png" width="16px">
+			    </ion-col>
+			    <ion-col col-7>
+			       <ion-thumbnail item-start>
+        <img *ngIf="rank.Licence.Photo" src="data:image/png;base64,{{rank.Licence.Photo}}">
+        <ion-icon *ngIf="!rank.Licence.Photo" name="contact"></ion-icon>
+        
+      </ion-thumbnail> {{ rank.Licence.LastName }},  {{ rank.Licence.FirstName }} 
+		    <ion-icon name="star" (click)="unfavoritePlayer(rank.Licence.Id,j);$event.stopPropagation()" *ngIf="isFavorite[j]"></ion-icon>
+		    <ion-icon name="star-outline" (click)="favoritePlayer(rank.Licence.Id,j);$event.stopPropagation()" *ngIf="!isFavorite[j]"></ion-icon>
+			    </ion-col>
+			    <ion-col col-3 text-right>
+			      <span *ngIf="rank.Rank">{{ rank.TotalScore }}</span>
+			      <span *ngIf="!rank.Rank">0</span>
+			    </ion-col>
+			  </ion-row>
+	    </ion-grid>
+	  </ion-item>
+	</ion-list>
+	
+	
+  </div>
+	
+<ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+		<ion-infinite-scroll-content></ion-infinite-scroll-content>
+	</ion-infinite-scroll>
+
+	
+
+
+
+
+</ion-content>
+
+ 

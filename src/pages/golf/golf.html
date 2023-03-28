@@ -1,0 +1,337 @@
+<ion-header no-border color="backColor">
+  <ion-navbar hideBackButton>
+    <ion-title>Golfs</ion-title>
+    <ion-buttons left>
+        <button ion-button icon-only (click)="viewCtrl.dismiss()">
+            <ion-icon name="arrow-back"></ion-icon>
+        </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<div class="titulo"  center text-center>
+	<h1>{{titulo}}</h1>
+	<p class="note">{{localidad}}</p>
+</div>
+
+<ion-content class="backgroundColor" [style.background-image]="foto_principal" scroll="true" overflow-scroll="true">
+
+<!--<ion-fab right bottom>
+    <button (click)="openMap()" ion-fab color="primary"><ion-icon name="map"></ion-icon></button>
+  </ion-fab>-->
+
+
+<div *ngIf="sistemaReserva">
+  <ion-segment [(ngModel)]="clubSwitch">
+    <ion-segment-button value="info">
+      {{ 'INFO_GOLF' | translate }}
+    </ion-segment-button>
+    <ion-segment-button value="location">
+      {{ 'LOCATION_GOLF' | translate }}
+    </ion-segment-button>
+    <ion-segment-button value="prices">
+      {{ 'PRICES_GOLF' | translate }}
+    </ion-segment-button>
+	
+    <ion-segment-button value="book" >
+      {{ 'BOOK_GOLF' | translate }}
+    </ion-segment-button>
+  </ion-segment>
+</div>
+
+<div *ngIf="!sistemaReserva">
+  <ion-segment [(ngModel)]="clubSwitch">
+    <ion-segment-button value="info">
+      {{ 'INFO_GOLF' | translate }}
+    </ion-segment-button>
+    <ion-segment-button value="location">
+      {{ 'LOCATION_GOLF' | translate }}
+    </ion-segment-button>
+    <ion-segment-button value="prices">
+      {{ 'PRICES_GOLF' | translate }}
+    </ion-segment-button>
+
+  </ion-segment>
+</div>
+	
+
+<div *ngIf="sistemaReserva">
+	
+	<div  [ngSwitch]="clubSwitch">
+		  <div class="teamCard" padding *ngSwitchCase="'info'">
+		   		
+		   		<div class="field">
+				    <label>{{ 'DESCRIPTION' | translate }}</label>
+				    <div [innerHTML]="descripcion"></div>
+			    </div>
+			    
+			    <div class="field">
+				    <label>{{ 'INFOGOLF' | translate }}</label>
+				    <div [innerHTML]="infoGolf"></div>
+			    </div>
+			    
+			    <div class="field">
+				    <label>{{ 'IMAGES' | translate }}</label>
+				    <div class="img_gallery">
+					    <div class="" *ngFor="let f of golfPhotos">
+						    <img src="https://www.footgolf-france.fr/media/cache/golf/{{f.Slug}}">
+					    </div>
+			    		</div>
+				    
+			    </div>
+		   		
+		   		
+		   	
+		  </div>
+		  
+		  		  <div class="teamCard" padding *ngSwitchCase="'location'" text-center>
+			  		  
+			  		 <div class="field">
+					    <label>{{ 'ADDRESS' | translate }}</label>
+					    <div [innerHTML]="direccion"></div>
+					    <p><ion-icon name="call"></ion-icon> {{telefono}}</p>
+						 <p><ion-icon name="mail"></ion-icon> {{email}}</p>
+				    </div>
+				    
+			  		  
+				  <!--<div>
+				  	<button ion-button (click)="navigate()" block>{{ 'NAVIGATE' | translate }}</button>
+				  </div>-->
+		  </div>
+		  
+		    <div class="teamCard" padding *ngSwitchCase="'prices'">
+			  		  
+			  		  
+			  		  <div *ngIf="tablaPrecios" class="tabla_precios">
+				  		  
+				  		 <table class="precios" style="width: 100%;text-align: center;" cellpadding="2" *ngIf='tablaPrecios["Toute saison"]'>
+    								<tbody><tr>
+    									<td style="" rowspan="2" colspan="2" >&nbsp;</td>
+    									<td style="" colspan="2"><strong>Green Fee à l'unité</strong></td>
+    										                                        <td style="" colspan="2"><strong>Carnet de 50 Greenfee</strong></td>
+    									                                    </tr>
+                                    <tr >
+    									<td style="">9 Trous</td>
+                                        <td style="">18 Trous</td>
+    									        									<td style="">9 Trous</td>
+                                            <td style="">18 Trous</td>
+    									                                    </tr>
+                                                                        	<tr>
+                                    		<td style=" vertical-align: middle; " rowspan="2">Toute Saison</td>
+                                    		<td style="">Semaine</td>
+                                    		
+                                    		
+                                    		
+                                    		<td style=""><i>{{tablaPrecios["Toute saison"]["Semaine"]["9"]}} €</i></td>
+                                    		<td style=""><i>{{tablaPrecios["Toute saison"]["Semaine"]["18"]}} €</i></td>
+        									    <td style="vertical-align: middle; " rowspan="2"><i>{{tablaPrecios["Toute saison"]["50"]["9"]}} €</i></td>
+                                                <td  style="vertical-align: middle;" rowspan="2"><i>{{tablaPrecios["Toute saison"]["50"]["18"]}} €</i></td>
+                                                
+        									                                    	</tr>
+                                    	<tr style="">
+                                    		<td style="">Weekend</td>
+                                    		<td  style=" "><i>{{tablaPrecios["Toute saison"]["Weekend"]["9"]}} €</i></td>
+                                    		<td style=""><i>{{tablaPrecios["Toute saison"]["Weekend"]["18"]}} €</i></td>
+                                    	</tr>
+                                                                    </tbody>
+                                                 </table>
+                                                 
+                                                 
+                        <table class="precios" style="width: 100%;text-align: center;" cellpadding="2" *ngIf='tablaPrecios["Toute Saison"]'>
+    								<tbody><tr>
+    									<td style="" rowspan="2" colspan="2" >&nbsp;</td>
+    									<td style="" colspan="2"><strong>Green Fee à l'unité</strong></td>
+    										                                        <td style="" colspan="2"><strong>Carnet de 50 Greenfee</strong></td>
+    									                                    </tr>
+                                    <tr >
+    									<td style="">9 Trous</td>
+                                        <td style="">18 Trous</td>
+    									        									<td style="">9 Trous</td>
+                                            <td style="">18 Trous</td>
+    									                                    </tr>
+                                                                        	<tr>
+                                    		<td style=" vertical-align: middle; " rowspan="2">Toute Saison</td>
+                                    		<td style="">Semaine</td>
+                                    		
+                                    		
+                                    		
+                                    		<td style=""><i>{{tablaPrecios["Toute Saison"]["Semaine"]["9"]}} €</i></td>
+                                    		<td style=""><i>{{tablaPrecios["Toute Saison"]["Semaine"]["18"]}} €</i></td>
+        									    <td style="vertical-align: middle; " rowspan="2"><i>{{tablaPrecios["Toute Saison"]["50"]["9"]}} €</i></td>
+                                                <td  style="vertical-align: middle;" rowspan="2"><i>{{tablaPrecios["Toute Saison"]["50"]["18"]}} €</i></td>
+                                                
+        									                                    	</tr>
+                                    	<tr style="">
+                                    		<td style="">Weekend</td>
+                                    		<td  style=" "><i>{{tablaPrecios["Toute Saison"]["Weekend"]["9"]}} €</i></td>
+                                    		<td style=""><i>{{tablaPrecios["Toute Saison"]["Weekend"]["18"]}} €</i></td>
+                                    	</tr>
+                                                                    </tbody>
+                                                 </table>                         
+                                                 
+				  		  
+			  		  </div>
+			  		  <p>&nbsp;</p>
+			  		 <div class="field">
+					    <label>{{ 'PRICEINFO' | translate }}</label>
+					    <div [innerHTML]="precio"></div>
+				    </div>
+
+		  </div>
+		  
+		  
+		  
+		  <div class="" padding *ngSwitchCase="'book'">
+			  <div *ngIf="tipoReservaGreenFees">
+			  	<button ion-button (click)="openBrowser(urlBooking)" block>{{ 'BOOKING_TEXT' | translate }}</button>
+			  </div>
+			  <div *ngIf="tipoReservaRegiondo" class="iframe-wrapper">
+			  	<iframe data-tap-disabled="true"  class= 'webPage' name= "samplePage" [src]="urlBooking"></iframe>
+			  </div>
+		  </div>
+		  
+		  
+	</div>
+
+</div>
+
+
+<div *ngIf="!sistemaReserva">
+	
+	<div  [ngSwitch]="clubSwitch">
+		  <div class="teamCard" padding *ngSwitchCase="'info'">
+		   		
+		   		<div class="field">
+				    <label>{{ 'DESCRIPTION' | translate }}</label>
+				    <div [innerHTML]="descripcion"></div>
+			    </div>
+			    
+			    <div class="field">
+				    <label>{{ 'INFOGOLF' | translate }}</label>
+				    <div [innerHTML]="infoGolf"></div>
+			    </div>
+			    
+			    <div class="field">
+				    <label>{{ 'IMAGES' | translate }}</label>
+				    <div class="img_gallery">
+					    <div class="" *ngFor="let f of golfPhotos">
+						    <img src="https://www.footgolf-france.fr/media/cache/golf/{{f.Slug}}">
+					    </div>
+			    		</div>
+				    
+			    </div>
+		   		
+		   		
+		   	
+		  </div>
+		  
+		  
+		   <div class="teamCard" padding *ngSwitchCase="'prices'">
+			  		  
+			  		 <div class="field">
+					    <label>{{ 'PRICEINFO' | translate }}</label>
+					    <div [innerHTML]="precio"></div>
+				    </div>
+
+		  </div>
+		  
+		  <div class="teamCard" padding *ngSwitchCase="'location'" text-center>
+			  
+			  <div class="field">
+					    <label>{{ 'ADDRESS' | translate }}</label>
+					    <div [innerHTML]="direccion"></div>
+					     <p><ion-icon name="call"></ion-icon> {{telefono}}</p>
+						 <p><ion-icon name="mail"></ion-icon> {{email}}</p>
+				    </div>
+			  
+			  <!--<div>
+			  	<button ion-button (click)="navigate()" block>{{ 'NAVIGATE' | translate }}</button>
+			  </div>-->
+		  </div>
+		  
+		  
+		  <div class="" padding *ngSwitchCase="'book'">
+			  <div *ngIf="tipoReservaGreenFees">
+			  	<button ion-button (click)="openBrowser(urlBooking)" block>{{ 'BOOKING_TEXT' | translate }}</button>
+			  </div>
+			  <div *ngIf="tipoReservaRegiondo">
+			  	<iframe  class= 'webPage' name= "samplePage" [src]="urlBooking"></iframe>
+			  </div>
+		  </div>
+		  
+		  
+	</div>
+
+</div>
+	
+
+</ion-content>
+
+
+<!--<ion-content padding class="backgroundColor">
+	
+	<h1>{{ teamInfo?.nombre }}</h1> <img src="{{ teamInfo?.logo }}" height="60px;">
+	</div>
+
+	<div padding-top>
+		<ion-segment >
+		<ion-segment-button value="players">
+		      PLAYERS
+		    </ion-segment-button>
+		    <ion-segment-button value="info">
+		      INFO
+		    </ion-segment-button>
+		    
+		</ion-segment>
+
+		<div [ngSwitch]="team">
+		
+		<h2 *ngSwitchCase="'players'">Men</h2>
+		
+		<ion-list *ngSwitchCase="'players'">
+
+			<ion-item *ngFor="let p of menplayers" (click)="openPlayer(p)">
+		      <ion-avatar item-start>
+		        <img src="{{ p.foto }}">
+		      </ion-avatar>
+		      <h2>{{ p.nombre }} {{ p.apellidos }}</h2>
+		      <p>{{ p.categoria }} • {{ p.fecha_nacimiento }}</p>
+		    </ion-item>
+		
+		</ion-list>	
+			
+		<h2 *ngSwitchCase="'players'">Women</h2>
+			<ion-list *ngSwitchCase="'players'">
+			<ion-item *ngFor="let p of womenplayers" (click)="openPlayer(p)">
+		      <ion-avatar item-start>
+		        <img src="{{ p.foto }}">
+		      </ion-avatar>
+		      <h2>{{ p.nombre }} {{ p.apellidos }}</h2>
+		      <p>{{ p.categoria }} • {{ p.fecha_nacimiento }}</p>
+		    </ion-item>
+			</ion-list>
+		    
+		    
+		<h2 *ngSwitchCase="'players'">Senior</h2>
+			<ion-list *ngSwitchCase="'players'">
+			<ion-item *ngFor="let p of seniorplayers" (click)="openPlayer(p)">
+		      <ion-avatar item-start>
+		        <img src="{{ p.foto }}">
+		      </ion-avatar>
+		      <h2>{{ p.nombre }} {{ p.apellidos }}</h2>
+		      <p>{{ p.categoria }} • {{ p.fecha_nacimiento }}</p>
+		    </ion-item>
+			</ion-list>
+		    
+		
+		  <div *ngSwitchCase="'info'" padding-top>
+		  	<div [innerHTML]="teamInfo?.info"></div>
+		  </div>
+
+	    
+
+		</div>
+	</div>
+
+</ion-content>-->

@@ -1,0 +1,13 @@
+<div class="outer">
+    <div class="left" (click)="changeSelected()">
+        <div [class.selected]="selected==1">
+            <ion-icon [name]="selected==1?'radio-button-on':'radio-button-off'"></ion-icon> {{options[0]}}
+        </div>
+    </div>
+    <div class="right" (click)="changeSelected()">
+        <div [class.selected]="selected==2">
+            <ion-icon [name]="selected==2?'radio-button-on':'radio-button-off'"></ion-icon> {{options[1]}}
+        </div>
+    </div>
+</div>
+<div style="clear: both"></div>
